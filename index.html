@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santo Hostel</title>
+    
+    <!-- Tailwind CSS (Funciona direto, sem configuração) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Configurações de Fonte */
+        .font-serif { fontFamily: 'Cormorant Garamond', serif; }
+        .font-sans { fontFamily: 'Montserrat', sans-serif; }
+        
+        /* Animações Simples */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0; /* Começa invisível */
+        }
+
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Zoom suave no background */
+        .hero-bg {
+            transition: transform 20s linear;
+        }
+        .hero-container:hover .hero-bg {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-[#fdfcf8] text-stone-800 antialiased">
+
+    <!-- HEADER / MENU -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-transparent text-white">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="font-serif tracking-widest uppercase text-2xl z-50 relative">
+                Santo Hostel
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex space-x-8 text-sm tracking-widest uppercase opacity-90">
+                <a href="#home" class="hover:text-[#c4a484] transition-colors">Início</a>
+                <a href="#acasa" class="hover:text-[#c4a484] transition-colors">A Casa</a>
+                <a href="#suites" class="hover:text-[#c4a484] transition-colors">Suítes</a>
+                <a href="#experiencias" class="hover:text-[#c4a484] transition-colors">Experiências</a>
+                <a href="#contato" class="hover:text-[#c4a484] transition-colors">Contato</a>
+            </nav>
+
+            <!-- Botão Menu Mobile -->
+            <button id="mobile-menu-btn" class="md:hidden z-50 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <!-- Menu Mobile Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#fdfcf8] z-40 flex flex-col items-center justify-center space-y-8 text-stone-800 font-serif text-2xl opacity-0 pointer-events-none transition-opacity duration-300">
+            <a href="#home" class="mobile-link">Início</a>
+            <a href="#acasa" class="mobile-link">A Casa</a>
+            <a href="#suites" class="mobile-link">Suítes</a>
+            <a href="#experiencias" class="mobile-link">Experiências</a>
+            <a href="#contato" class="mobile-link">Contato</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative h-screen w-full overflow-hidden hero-container">
+        <!-- Imagem de Fundo -->
+        <div class="hero-bg absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=90');"></div>
+        
+        <!-- Máscara Escura -->
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <!-- Conteúdo -->
+        <div class="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
+            <p class="animate-fade-in-up delay-200 font-sans text-sm md:text-base tracking-[0.3em] uppercase mb-4 opacity-90">
+                Trancoso • Bahia
+            </p>
+            <h1 class="animate-fade-in-up delay-400 font-serif text-5xl md:text-7xl lg:text-8xl italic mb-6">
+                Hospedaria de Charme
+            </h1>
+            <p class="animate-fade-in-up delay-600 font-serif text-xl md:text-2xl max-w-2xl leading-relaxed opacity-90">
+                Onde a simplicidade encontra a sofisticação em cada detalhe.
+            </p>
+            
+            <div class="absolute bottom-10 animate-bounce">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </div>
+        </div>
+    </section>
+<!-- Adicionar antes ao final da tag <body> ... </body> -->
+                                            <!-- Adicionar a div desejada o id artax_form_div <div id="artax_form_div"></div> -->
+                                            <link rel="stylesheet" href="https://artaxnet.com/css/search_form_ebe.css">
+                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                                            <script>
+                                                document.addEventListener('DOMContentLoaded', () => {
+                                                    fetch("https://santo-hostel.artaxnet.com/api/load-form/ebe")
+                                                        .then(response => response.text())
+                                                        .then(html => {
+                                                            document.getElementById("artax_form_div").innerHTML = html;
+                                                                        
+                                                            const script = document.createElement('script');
+                                                            script.src = 'https://artaxnet.com/js/form_search_artax.js';
+                                                            document.body.appendChild(script);
+                                                        });
+                                                })
+                                            </script>
+<!-- Adicionar na DIV desejada -->
+                            <embed src="https://santo-hostel.artaxnet.com/api/load-form/ebe" type="" width="100%" height="100%">
+    <!-- A CASA -->
+    <section id="acasa" class="py-24 px-6 md:px-12 bg-[#fdfcf8]">
+        <div class="container mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 space-y-8 text-center md:text-left">
+                <span class="font-sans text-xs tracking-[0.2em] text-[#c4a484] uppercase">Nossa Essência</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-stone-800 leading-tight">
+                    Uma casa com alma,<br /> feita de histórias.
+                </h2>
+                <div class="w-16 h-[1px] bg-[#c4a484] mx-auto md:mx-0"></div>
+                <p class="font-sans font-light text-stone-600 leading-loose text-sm md:text-base">
+                   O Santo Hostel não é apenas um lugar para dormir, é um convite para desacelerar. 
+                    Inspirada na cultura local de Trancoso e no design tropical, cada canto foi pensado 
+                    para despertar os sentidos. Móveis de madeira de demolição, linho puro, obras de 
+                    artistas locais e o cheiro de café fresco pela manhã.
+                </p>
+                <p class="font-serif italic text-xl text-stone-500">
+                    "Luxo é ter tempo, silêncio e espaço."
+                </p>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="absolute -top-4 -left-4 w-full h-full border border-[#c4a484]/30 z-0 hidden md:block"></div>
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Interior da Casa" class="relative z-10 w-full h-auto shadow-xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- SUÍTES -->
+    <section id="suites" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="font-sans text-xs tracking-[0.2em] text-[#c4a484] uppercase">Acomodações</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-stone-800 mt-4">Nossas Suítes</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Suite 1 -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden mb-6 relative aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Suíte" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-stone-800 mb-3 group-hover:text-[#c4a484] transition-colors">Suíte Jasmin</h3>
+                    <p class="font-sans font-light text-sm text-stone-500 leading-relaxed mb-6">Uma imersão na história com conforto contemporâneo. Cama king size, varanda privativa e decoração com artesanato local.</p>
+                    <button class="text-xs font-bold tracking-[0.2em] uppercase border-b border-stone-300 pb-1 hover:border-[#c4a484] hover:text-[#c4a484] transition-all">Reservar Agora</button>
+                </div>
+
+                <!-- Suite 2 -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden mb-6 relative aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Suíte" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-stone-800 mb-3 group-hover:text-[#c4a484] transition-colors">Suíte Flor das Águas</h3>
+                    <p class="font-sans font-light text-sm text-stone-500 leading-relaxed mb-6">Rodeada pelo verde, esta suíte oferece silêncio absoluto e um banho ao ar livre inesquecível.</p>
+                    <button class="text-xs font-bold tracking-[0.2em] uppercase border-b border-stone-300 pb-1 hover:border-[#c4a484] hover:text-[#c4a484] transition-all">Reservar Agora</button>
+                </div>
+
+                <!-- Suite 3 -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden mb-6 relative aspect-[3/4]">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Suíte" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                    <h3 class="font-serif text-2xl text-stone-800 mb-3 group-hover:text-[#c4a484] transition-colors">Loft</h3>
+                    <p class="font-sans font-light text-sm text-stone-500 leading-relaxed mb-6">Charme e sofisticação a poucos passos do centro histórico. Espaço amplo com sala de estar integrada.</p>
+                    <button class="text-xs font-bold tracking-[0.2em] uppercase border-b border-stone-300 pb-1 hover:border-[#c4a484] hover:text-[#c4a484] transition-all">Reservar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIÊNCIAS -->
+    <section id="experiencias" class="py-24 bg-[#fdfcf8]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 shadow-2xl overflow-hidden">
+                <!-- Foto 1 -->
+                <div class="h-96 md:h-auto overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Café" class="w-full h-full object-cover">
+                </div>
+                <!-- Texto 1 -->
+                <div class="bg-[#ebe9e1] p-12 md:p-20 flex flex-col justify-center">
+                    <span class="font-sans text-xs tracking-[0.2em] text-stone-500 uppercase mb-4">Gastronomia</span>
+                    <h3 class="font-serif text-3xl md:text-4xl text-stone-800 mb-6">Café da Manhã</h3>
+                    <p class="font-sans font-light text-stone-600 leading-loose mb-8">
+                        Servido sem pressa, no jardim ou na varanda. Nossa mesa é posta com frutas da estação, 
+                        bolos caseiros, pães de fermentação natural e tapiocas feitas na hora. Um verdadeiro 
+                        ritual para começar o dia na Bahia.
+                    </p>
+                </div>
+                
+                <!-- Texto 2 (Invertido em Desktop) -->
+                <div class="bg-stone-800 p-12 md:p-20 flex flex-col justify-center text-white order-last md:order-none">
+                    <span class="font-sans text-xs tracking-[0.2em] text-[#c4a484] uppercase mb-4">Lazer</span>
+                    <h3 class="font-serif text-3xl md:text-4xl text-white mb-6">a</h3>
+                    <p class="font-sans font-light text-white/80 leading-loose mb-8">
+                        Refresque-se em nossa piscina de pedra vulcânica cercada por um jardim tropical exuberante. 
+                        O lugar perfeito para ler um livro, tomar um drink ou simplesmente não fazer nada.
+                    </p>
+                </div>
+                <!-- Foto 2 -->
+                <div class="h-96 md:h-auto overflow-hidden order-3 md:order-none">
+                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b468848?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Piscina" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="py-24 bg-white text-center px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="text-4xl text-[#c4a484] font-serif">"</span>
+            </div>
+            <p class="font-serif text-2xl md:text-3xl italic text-stone-700 mb-8">
+                Um refúgio de paz em Porto Seguro. Cada detalhe da casa transmite amor e cuidado. 
+                Voltaremos com certeza.
+            </p>
+            <div class="font-sans text-xs tracking-[0.2em] uppercase text-stone-400">
+                — Maria e João, São Paulo
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato" class="bg-[#1c1c1c] text-white/80 py-20 px-6 font-sans font-light">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left">
+            
+            <!-- Marca -->
+            <div class="flex flex-col items-center md:items-start">
+                <h4 class="font-serif text-2xl text-white mb-6 tracking-wide">Santo Hostel</h4>
+                <p class="text-sm leading-loose max-w-xs text-stone-400">
+                    Hospedaria boutique em Porto Seguro, Bahia.
+                    Sinta-se em casa, longe de casa.
+                </p>
+                <div class="flex space-x-6 mt-8 text-[#c4a484]">
+                    <!-- Instagram Icon -->
+                    <svg class="cursor-pointer hover:text-white transition-colors" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <!-- Mail Icon -->
+                    <svg class="cursor-pointer hover:text-white transition-colors" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+            </div>
+
+            <!-- Contato -->
+            <div class="flex flex-col items-center md:items-start">
+                <h5 class="font-serif text-lg text-white mb-6">Contato</h5>
+                <div class="space-y-4 text-sm text-stone-400">
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <svg class="text-[#c4a484]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Rua do Bosque, 123 - Trancoso, BA</span>
+                    </div>
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <svg class="text-[#c4a484]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>+55 (73) 99999-9999</span>
+                    </div>
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <svg class="text-[#c4a484]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>santohostel.ps@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="flex flex-col items-center md:items-start">
+                <h5 class="font-serif text-lg text-white mb-6">Newsletter</h5>
+                <p class="text-sm text-stone-400 mb-4">Receba novidades e ofertas exclusivas.</p>
+                <form class="w-full max-w-xs flex border-b border-stone-600 pb-2">
+                    <input type="email" placeholder="Seu e-mail" class="bg-transparent w-full outline-none text-white placeholder-stone-500 text-sm">
+                    <button type="button" class="text-[#c4a484] uppercase text-xs tracking-widest hover:text-white transition-colors">
+                        Enviar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="border-t border-stone-800 mt-20 pt-8 text-center text-xs text-stone-600 tracking-widest">
+            &copy; 2026 SANTO HOSTEL. TODOS OS DIREITOS RESERVADOS.
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE COMPORTAMENTO (Sem React) -->
+    <script>
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        // Efeito de Scroll na Navbar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'shadow-sm', 'py-4', 'text-stone-800');
+                navbar.classList.remove('bg-transparent', 'py-6', 'text-white');
+            } else {
+                navbar.classList.remove('bg-white/95', 'shadow-sm', 'py-4', 'text-stone-800');
+                navbar.classList.add('bg-transparent', 'py-6', 'text-white');
+            }
+        });
+
+        // Menu Mobile
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenuBtn.classList.add('text-stone-800');
+                mobileMenuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenuBtn.classList.remove('text-stone-800');
+                mobileMenuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>';
+            }
+        });
+
+        // Fechar menu ao clicar em link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>';
+            });
+        });
+    </script>
+</body>
+</html>
