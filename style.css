@@ -2,7 +2,7 @@
 
 /* Título principal do topo (Hero) */
 .fonte-titulo-hero {
-    font-size: clamp(3rem, 10vw, 6rem) !important;
+    font-size: clamp(3rem, 10vw, 12rem) !important;
 }
 
 /* Títulos das seções (A Casa, Nossas Suítes, etc) */
