@@ -1,0 +1,46 @@
+/* =========================================
+   style.css - Controle de Fontes
+========================================= */
+
+/* 1. Título Gigante da página inicial (Hero) */
+.fonte-titulo-hero {
+    font-size: 5rem !important; 
+}
+
+/* 2. Títulos das seções (A Casa, Nossas Suítes, etc) */
+.fonte-titulo-secao {
+    font-size: 3rem !important;
+}
+
+/* 3. Subtítulos das Suítes (Suíte Jasmin, Loft, etc) */
+.fonte-subtitulo {
+    font-size: 1.8rem !important;
+}
+
+/* 4. Textos corridos e parágrafos */
+.fonte-texto {
+    font-size: 1.1rem !important;
+    line-height: 1.8 !important; /* Espaçamento entre as linhas para leitura confortável */
+}
+
+/* 5. Textos de destaque pequenos (Nossa Essência, Acomodações) */
+.fonte-destaque-pequeno {
+    font-size: 0.85rem !important;
+}
+
+/* =========================================
+   Ajustes Automáticos para Celular
+========================================= */
+@media (max-width: 768px) {
+    .fonte-titulo-hero {
+        font-size: 3.5rem !important; /* Fica um pouco menor na tela do celular */
+    }
+    
+    .fonte-titulo-secao {
+        font-size: 2.2rem !important;
+    }
+    
+    .fonte-texto {
+        font-size: 1rem !important;
+    }
+}
