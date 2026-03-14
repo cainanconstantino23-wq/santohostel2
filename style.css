@@ -1,46 +1,38 @@
-/* =========================================
-   style.css - Controle de Fontes
-========================================= */
+/* --- ARQUIVO DE CUSTOMIZAÇÃO DE FONTES --- */
 
-/* 1. Título Gigante da página inicial (Hero) */
+/* Título principal do topo (Hero) */
 .fonte-titulo-hero {
-    font-size: 5rem !important; 
+    font-size: clamp(3rem, 10vw, 6rem) !important;
 }
 
-/* 2. Títulos das seções (A Casa, Nossas Suítes, etc) */
+/* Títulos das seções (A Casa, Nossas Suítes, etc) */
 .fonte-titulo-secao {
-    font-size: 3rem !important;
+    font-size: clamp(2rem, 5vw, 3.5rem) !important;
 }
 
-/* 3. Subtítulos das Suítes (Suíte Jasmin, Loft, etc) */
+/* Títulos das Suítes e subseções */
 .fonte-subtitulo {
-    font-size: 1.8rem !important;
+    font-size: 1.75rem !important;
 }
 
-/* 4. Textos corridos e parágrafos */
+/* Textos dos parágrafos e descrições */
 .fonte-texto {
     font-size: 1.1rem !important;
-    line-height: 1.8 !important; /* Espaçamento entre as linhas para leitura confortável */
+    line-height: 1.7 !important;
 }
 
-/* 5. Textos de destaque pequenos (Nossa Essência, Acomodações) */
-.fonte-destaque-pequeno {
-    font-size: 0.85rem !important;
+/* Textos muito pequenos (rótulos e etiquetas) */
+.fonte-rotulo {
+    font-size: 0.8rem !important;
+    letter-spacing: 0.2em !important;
 }
 
-/* =========================================
-   Ajustes Automáticos para Celular
-========================================= */
+/* Ajustes finos para telas de celular */
 @media (max-width: 768px) {
-    .fonte-titulo-hero {
-        font-size: 3.5rem !important; /* Fica um pouco menor na tela do celular */
-    }
-    
-    .fonte-titulo-secao {
-        font-size: 2.2rem !important;
-    }
-    
     .fonte-texto {
         font-size: 1rem !important;
+    }
+    .fonte-subtitulo {
+        font-size: 1.5rem !important;
     }
 }
