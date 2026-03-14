@@ -1,3 +1,8 @@
+html {
+    /* 100% é o padrão (16px). 120% aumentará tudo em 20% */
+    font-size: 115% !important; 
+}
+
 /* --- ARQUIVO DE CUSTOMIZAÇÃO DE FONTES --- */
 
 /* Título principal do topo (Hero) */
