@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santo Hostel - Manual de Excelência</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #064E3B; /* Verde escuro das imagens */
+            --primary-yellow: #FBBF24; /* Amarelo das imagens */
+            --bg-light: #F9FAFB;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--bg-light);
+            color: #1F2937;
+        }
+        .text-hostel-green { color: var(--primary-green); }
+        .bg-hostel-green { background-color: var(--primary-green); }
+        .text-hostel-yellow { color: var(--primary-yellow); }
+        .bg-hostel-yellow { background-color: var(--primary-yellow); }
+        
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .section-header {
+            border-bottom: 3px solid var(--primary-yellow);
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section (Slide 1) -->
+    <header class="min-height-screen flex flex-col items-center justify-center py-20 px-6 text-center bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-50 rounded-full -mr-20 -mt-20 opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-green-50 rounded-full -ml-20 -mb-20 opacity-50"></div>
+        
+        <h1 class="text-6xl md:text-8xl font-black mb-2 tracking-tighter">
+            <span class="text-hostel-yellow block">SANTO</span>
+            <span class="text-hostel-green block leading-none">HOSTEL</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 mt-6 font-medium">Manual de Excelência em Recepção • 2026</p>
+        <div class="w-16 h-1 bg-hostel-green my-8 mx-auto"></div>
+        <p class="text-lg italic text-gray-500">Seja bem-vindo. Estamos felizes em tê-lo conosco!</p>
+        
+        <a href="#programa" class="mt-12 animate-bounce text-hostel-green text-3xl">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- O Programa (Slide 2) -->
+    <section id="programa" class="bg-hostel-green text-white py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold text-hostel-yellow mb-4">O Programa de Voluntariado</h2>
+            <p class="text-xl md:text-2xl font-light opacity-90">Comprometimento e Excelência na Hospitalidade</p>
+        </div>
+    </section>
+
+    <!-- Critérios de Avaliação (Slide 4) -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-hostel-green section-header">Critérios de Avaliação</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center">
+                <span class="text-8xl font-black text-hostel-yellow">100%</span>
+                <p class="text-xl font-bold text-gray-700 mt-2">Sucesso nas Tarefas</p>
+            </div>
+            <div class="card p-8 border-l-8 border-hostel-green">
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Disponibilidade e Pontualidade</li>
+                    <li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Produtividade e Eficiência</li>
+                    <li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Organização Impecável</li>
+                    <li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Competência na Execução</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Escalas e Benefícios (Slide 5) -->
+    <section class="py-20 px-6 bg-gray-100">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-hostel-green section-header">Escalas e Benefícios</h2>
+            
+            <div class="overflow-x-auto card mb-8">
+                <table class="w-full text-left">
+                    <thead class="bg-hostel-green text-white">
+                        <tr>
+                            <th class="p-4">Turno</th>
+                            <th class="p-4">Horário</th>
+                            <th class="p-4">Frequência</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="p-4 font-bold">Manhã</td>
+                            <td class="p-4">08:00 AM às 13:00 PM</td>
+                            <td class="p-4">Diário</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="p-4 font-bold">Tarde</td>
+                            <td class="p-4">13:00 PM às 18:00 PM</td>
+                            <td class="p-4">Diário</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Noite</td>
+                            <td class="p-4">18:00 PM às 23:00 PM</td>
+                            <td class="p-4">Diário</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-yellow-100 p-6 rounded-xl border-l-4 border-hostel-yellow">
+                    <h3 class="font-bold text-hostel-green mb-2"><i class="fas fa-coffee mr-2"></i> Folgas</h3>
+                    <p>1x por semana, programada conforme disponibilidade da equipe.</p>
+                </div>
+                <div class="bg-green-100 p-6 rounded-xl border-l-4 border-hostel-green">
+                    <h3 class="font-bold text-hostel-green mb-2"><i class="fas fa-soap mr-2"></i> Lavanderia</h3>
+                    <p>Grátis 1x por semana (disponível até as 14h).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsabilidades Fundamentais (Slide 6) -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-hostel-green section-header">Responsabilidades Fundamentais</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card p-8 text-center border-t-4 border-hostel-green">
+                <i class="fas fa-star text-hostel-yellow text-4xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-4">Atendimento</h3>
+                <p class="text-gray-600">Ajudar e informar hóspedes sobre o hostel e nossa cidade.</p>
+            </div>
+            <div class="card p-8 text-center border-t-4 border-hostel-green">
+                <i class="fab fa-whatsapp text-hostel-yellow text-4xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-4">Comunicação</h3>
+                <p class="text-gray-600">Estar disponível para contato direto com o anfitrião Cainan.</p>
+            </div>
+            <div class="card p-8 text-center border-t-4 border-hostel-green">
+                <i class="fas fa-broom text-hostel-yellow text-4xl mb-4"></i>
+                <h3 class="text-xl font-bold mb-4">Zeladoria</h3>
+                <p class="text-gray-600">Varrer o salão todos os dias e manter tudo ordenado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gestão de Luzes (Slide 7) -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-hostel-green section-header">Gestão de Luzes e Áreas Comuns</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="font-bold text-hostel-green text-xl mb-2 flex items-center">
+                            <i class="fas fa-sun mr-2 text-hostel-yellow"></i> Turno Manhã
+                        </h3>
+                        <p class="text-lg">Apagar luzes do banheiro.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-hostel-green text-xl mb-2 flex items-center">
+                            <i class="fas fa-cloud-sun mr-2 text-hostel-yellow"></i> Turno Tarde
+                        </h3>
+                        <p class="text-lg">Acender recepção/bar e salão. Guardar louças (16h-17h).</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-hostel-green text-xl mb-2 flex items-center">
+                            <i class="fas fa-moon mr-2 text-hostel-yellow"></i> Turno Noite
+                        </h3>
+                        <p class="text-lg">Recolher redes, luz apenas no banheiro ao final.</p>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=800" alt="Área Comum Hostel" class="rounded-2xl shadow-xl w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-hostel-green opacity-10 group-hover:opacity-0 transition-opacity rounded-2xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegação PMS (Slide 8) -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-hostel-green section-header">Navegação no Sistema (PMS)</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-gray-700">Fluxo para Hóspedes sem Reserva:</h3>
+                    <ol class="space-y-4 list-decimal list-inside text-lg text-gray-600">
+                        <li class="pl-2">Escolher Data no Calendário</li>
+                        <li class="pl-2">Plano de Tarifa > Buscar</li>
+                        <li class="pl-2">Criar Novo Hóspede (Nome e E-mail)</li>
+                        <li class="pl-2">Reservar e Efetuar Check-in</li>
+                    </ol>
+                    <p class="mt-10 italic text-sm text-gray-400">*Sempre checar o balãozinho de informações no mapa de reservas.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-lg">
+                    <div class="bg-gray-200 h-64 rounded flex items-center justify-center text-gray-400">
+                        <i class="fas fa-desktop text-6xl"></i>
+                    </div>
+                    <p class="text-center mt-2 text-xs text-gray-400">Interface do Sistema de Reservas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vendas e Consumo (Slide 9) -->
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-hostel-green section-header">Vendas e Consumo</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&q=80&w=400" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="font-bold text-hostel-green">Bebidas & Itens</h3>
+                    <p class="text-sm text-gray-500">Coca-Cola, Budweiser, Águas.</p>
+                </div>
+            </div>
+            <div class="card overflow-hidden">
+                <div class="w-full h-48 bg-gray-100 flex items-center justify-center text-gray-300">
+                    <i class="fas fa-concierge-bell text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-hostel-green">Serviços</h3>
+                    <p class="text-sm text-gray-500">Aluguel de toalhas e cadeados.</p>
+                </div>
+            </div>
+            <div class="bg-green-50 p-6 rounded-xl border-2 border-dashed border-hostel-green">
+                <h3 class="font-bold text-hostel-green mb-4 text-center underline">Passo a Passo:</h3>
+                <ul class="space-y-3">
+                    <li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Clicar no Hóspede</li>
+                    <li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Selecionar "Consumo"</li>
+                    <li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Adicionar Item e <strong>Salvar</strong></li>
+                    <li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Lançar Pagamento Parcial</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Check-out e Day-use (Slide 10) -->
+    <section class="py-20 px-6 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-hostel-yellow section-header">Check-out e Day-use</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
+                    <h3 class="text-xl font-bold text-hostel-yellow mb-6 flex items-center">
+                        <i class="fas fa-door-open mr-3"></i> Checkout (até 11h)
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Consultar débitos no sistema.</li>
+                        <li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Perguntar sobre a experiência.</li>
+                        <li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3 font-bold"></i> Pedir Avaliação: Fundamental!</li>
+                    </ul>
+                </div>
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
+                    <h3 class="text-xl font-bold text-hostel-yellow mb-6 flex items-center">
+                        <i class="fas fa-suitcase mr-3"></i> Day-use (R$ 30,00)
+                    </h3>
+                    <p class="mb-4">Permite uso de todas as dependências, exceto quartos.</p>
+                    <p class="text-sm opacity-70 italic">*Guardar bagagem é cortesia na recepção.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dúvidas (Slide 11) -->
+    <footer class="bg-hostel-yellow py-24 px-6 text-center">
+        <div class="max-w-xl mx-auto">
+            <h2 class="text-5xl font-black text-hostel-green mb-8">Dúvidas?</h2>
+            <p class="text-xl text-hostel-green mb-10 font-medium">Fale com o Cainan no WhatsApp</p>
+            
+            <a href="https://wa.me/seunumeroaqui" target="_blank" class="inline-block bg-hostel-green text-white p-6 rounded-full text-4xl shadow-2xl hover:scale-110 transition-transform">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            
+            <p class="mt-16 text-hostel-green font-bold tracking-wider uppercase">
+                Vamos fazer de 2026 um ano incrível no Santo Hostel!
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
