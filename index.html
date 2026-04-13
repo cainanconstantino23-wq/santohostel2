@@ -1,804 +1,576 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 
 <head>
 
-    <style>
+<meta charset="UTF-8">
 
-    html {
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        font-size: 130% !important;
+<title>Santo Hostel - Manual de Excelência</title>
 
-    }
+<script src="https://cdn.tailwindcss.com"></script>
 
-    body {
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-        line-height: 1.6 !important;
+<style>
 
-        -webkit-font-smoothing: antialiased;
+:root {
 
-    }
+--primary-green: #064E3B; /* Verde escuro das imagens */
 
-    p, li {
+--primary-yellow: #FBBF24; /* Amarelo das imagens */
 
-        margin-bottom: 1.2em;
+--bg-light: #F9FAFB;
 
-    }
+}
+
+body {
+
+font-family: 'Inter', sans-serif;
+
+scroll-behavior: smooth;
+
+background-color: var(--bg-light);
+
+color: #1F2937;
+
+}
+
+.text-hostel-green { color: var(--primary-green); }
+
+.bg-hostel-green { background-color: var(--primary-green); }
+
+.text-hostel-yellow { color: var(--primary-yellow); }
+
+.bg-hostel-yellow { background-color: var(--primary-yellow); }
+
+
+.card {
+
+background: white;
+
+border-radius: 1rem;
+
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+transition: transform 0.2s;
+
+}
+
+.card:hover {
+
+transform: translateY(-5px);
+
+}
+
+.section-header {
+
+border-bottom: 3px solid var(--primary-yellow);
+
+display: inline-block;
+
+margin-bottom: 2rem;
+
+padding-bottom: 0.5rem;
+
+}
 
 </style>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Santo Hostel</title>
-
-    
-
-    <!-- Tailwind CSS -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    
-
-    <!-- Fontes Google -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
-
-
-    <style>
-
-        /* Estilização do Botão Flutuante de WhatsApp */
-
-        .whatsapp-float {
-
-            position: fixed;
-
-            bottom: 30px;
-
-            right: 30px;
-
-            background-color: #25d366;
-
-            color: #fff;
-
-            padding: 12px 20px;
-
-            border-radius: 50px;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-
-            z-index: 9999;
-
-            transition: all 0.3s ease;
-
-            text-decoration: none;
-
-            font-family: 'Montserrat', sans-serif;
-
-            font-weight: 500;
-
-            font-size: 14px;
-
-            letter-spacing: 0.5px;
-
-        }
-
-
-
-        .whatsapp-float:hover {
-
-            transform: scale(1.05);
-
-            background-color: #20ba5a;
-
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-
-        }
-
-
-
-        /* Configurações de Fonte */
-
-        .font-serif { font-family: 'Cormorant Garamond', serif; }
-
-        .font-sans { font-family: 'Montserrat', sans-serif; }
-
-        
-
-        /* Animações Simples */
-
-        @keyframes fadeInUp {
-
-            from { opacity: 0; transform: translateY(20px); }
-
-            to { opacity: 1; transform: translateY(0); }
-
-        }
-
-        
-
-        .animate-fade-in-up {
-
-            animation: fadeInUp 1s ease-out forwards;
-
-            opacity: 0;
-
-        }
-
-
-
-        .delay-200 { animation-delay: 0.2s; }
-
-        .delay-400 { animation-delay: 0.4s; }
-
-        .delay-600 { animation-delay: 0.6s; }
-
-
-
-        /* Zoom suave no background */
-
-        .hero-bg {
-
-            transition: transform 20s linear;
-
-        }
-
-        .hero-container:hover .hero-bg {
-
-            transform: scale(1.05);
-
-        }
-
-
-
-        /* Controle de visibilidade para "páginas" simuladas */
-
-        .page-content { display: block; }
-
-        .hidden-page { display: none; }
-
-    </style>
-
 </head>
 
-<body class="bg-[#fdfcf8] text-stone-800 antialiased">
+<body>
 
 
 
-    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+<!-- Hero Section (Slide 1) -->
 
-    <a href="https://wa.me/557391524222?text=Olá,%20Gostaria%20de%20fazer%20uma%20reserva." class="whatsapp-float" target="_blank">
+<header class="min-height-screen flex flex-col items-center justify-center py-20 px-6 text-center bg-white relative overflow-hidden">
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+<div class="absolute top-0 right-0 w-64 h-64 bg-yellow-50 rounded-full -mr-20 -mt-20 opacity-50"></div>
 
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82l.303.18c1.397.83 3.132 1.27 4.905 1.272 5.733 0 10.397-4.664 10.399-10.398.001-2.779-1.082-5.391-3.048-7.357-1.965-1.965-4.577-3.048-7.359-3.048-5.736 0-10.4 4.663-10.401 10.398-.001 2.128.631 4.2 1.829 5.918l.199.288-.994 3.628 3.71-.973zm9.95-6.11c-.303-.151-1.791-.883-2.069-.983-.277-.101-.48-.15-.68.151-.2.3-.777.983-.951 1.185-.174.201-.348.226-.652.076-.303-.151-1.282-.472-2.441-1.507-.903-.805-1.512-1.799-1.689-2.099-.177-.3-.019-.462.13-.612.135-.135.303-.352.455-.528.151-.175.201-.301.303-.503.101-.201.05-.377-.026-.528-.075-.151-.68-1.637-.932-2.245-.246-.593-.494-.513-.68-.523-.175-.009-.377-.01-.578-.01-.201 0-.528.075-.805.377-.277.301-1.056 1.031-1.056 2.516 0 1.486 1.082 2.92 1.232 3.122.151.201 2.13 3.253 5.16 4.561.721.311 1.283.497 1.721.636.723.23 1.382.197 1.902.12.58-.087 1.791-.732 2.043-1.44.252-.708.252-1.314.177-1.44-.076-.126-.278-.201-.581-.352z"/>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-green-50 rounded-full -ml-20 -mb-20 opacity-50"></div>
 
-        </svg>
 
-        <span>WhatsApp</span>
+<h1 class="text-6xl md:text-8xl font-black mb-2 tracking-tighter">
 
-    </a>
+<span class="text-hostel-yellow block">SANTO</span>
 
+<span class="text-hostel-green block leading-none">HOSTEL</span>
 
+</h1>
 
-    <!-- HEADER / MENU -->
+<p class="text-xl md:text-2xl text-gray-600 mt-6 font-medium">Manual de Excelência em Recepção • 2026</p>
 
-    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 bg-transparent text-white">
+<div class="w-16 h-1 bg-hostel-green my-8 mx-auto"></div>
 
-        <div class="container mx-auto px-6 flex justify-between items-center">
+<p class="text-lg italic text-gray-500">Seja bem-vindo. Estamos felizes em tê-lo conosco!</p>
 
-            <!-- Logo -->
 
-            <a href="#" onclick="showPage('home-content')" class="font-serif tracking-widest uppercase text-2xl z-50 relative cursor-pointer">
+<a href="#programa" class="mt-12 animate-bounce text-hostel-green text-3xl">
 
-                Santo Hostel
+<i class="fas fa-chevron-down"></i>
 
-            </a>
+</a>
 
+</header>
 
 
-            <!-- Menu Desktop -->
 
-            <nav class="hidden md:flex space-x-8 text-sm tracking-widest uppercase items-center">
+<!-- O Programa (Slide 2) -->
 
-                <a href="#home" onclick="showPage('home-content')" class="hover:text-[#c4a484] transition-colors">Início</a>
+<section id="programa" class="bg-hostel-green text-white py-24 px-6 text-center">
 
-                <a href="#acasa" onclick="showPage('home-content')" class="hover:text-[#c4a484] transition-colors">A Casa</a>
+<div class="max-w-4xl mx-auto">
 
-                <a href="#suites" onclick="showPage('home-content')" class="hover:text-[#c4a484] transition-colors">Suítes</a>
+<h2 class="text-4xl md:text-6xl font-bold text-hostel-yellow mb-4">O Programa de Voluntariado</h2>
 
-                <a href="#experiencias" onclick="showPage('home-content')" class="hover:text-[#c4a484] transition-colors">Experiências</a>
+<p class="text-xl md:text-2xl font-light opacity-90">Comprometimento e Excelência na Hospitalidade</p>
 
-                <a href="#contato" onclick="showPage('home-content')" class="hover:text-[#c4a484] transition-colors">Contato</a>
+</div>
 
-            </nav>
+</section>
 
 
 
-            <!-- Botão Menu Mobile -->
+<!-- Critérios de Avaliação (Slide 4) -->
 
-            <button id="mobile-menu-btn" class="md:hidden z-50 focus:outline-none">
+<section class="py-20 px-6 max-w-6xl mx-auto">
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+<h2 class="text-3xl font-bold text-hostel-green section-header">Critérios de Avaliação</h2>
 
-            </button>
+<div class="grid md:grid-cols-2 gap-12 items-center">
 
-        </div>
+<div class="text-center">
 
+<span class="text-8xl font-black text-hostel-yellow">100%</span>
 
+<p class="text-xl font-bold text-gray-700 mt-2">Sucesso nas Tarefas</p>
 
-        <!-- Menu Mobile Overlay -->
+</div>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-[#fdfcf8] z-40 flex flex-col items-center justify-center space-y-8 text-stone-800 font-serif text-2xl opacity-0 pointer-events-none transition-opacity duration-300">
+<div class="card p-8 border-l-8 border-hostel-green">
 
-            <a href="#home" onclick="showPage('home-content')" class="mobile-link">Início</a>
+<ul class="space-y-4 text-lg">
 
-            <a href="#acasa" onclick="showPage('home-content')" class="mobile-link">A Casa</a>
+<li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Disponibilidade e Pontualidade</li>
 
-            <a href="#suites" onclick="showPage('home-content')" class="mobile-link">Suítes</a>
+<li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Produtividade e Eficiência</li>
 
-            <a href="#experiencias" onclick="showPage('home-content')" class="mobile-link">Experiências</a>
+<li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Organização Impecável</li>
 
-            <a href="#contato" onclick="showPage('home-content')" class="mobile-link">Contato</a>
+<li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Competência na Execução</li>
 
-            <a href="#" onclick="showPage('voluntariado-content')" class="mobile-link text-[#c4a484]">Voluntariado</a>
+</ul>
 
-        </div>
+</div>
 
-    </header>
+</div>
 
+</section>
 
 
-    <!-- CONTEÚDO PRINCIPAL (HOME) -->
 
-    <main id="home-content" class="page-content">
+<!-- Escalas e Benefícios (Slide 5) -->
 
-        <!-- HERO SECTION -->
+<section class="py-20 px-6 bg-gray-100">
 
-        <section id="home" class="relative h-screen w-full overflow-hidden hero-container">
+<div class="max-w-6xl mx-auto">
 
-            <div class="hero-bg absolute inset-0 bg-cover bg-center" style="background-image: url('https://www.portoseguro.ba.gov.br/assets/img/posts/post-244.jpeg');"></div>
+<h2 class="text-3xl font-bold text-hostel-green section-header">Escalas e Benefícios</h2>
 
-            <div class="absolute inset-0 bg-black/30"></div>
 
-            <div class="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-4">
+<div class="overflow-x-auto card mb-8">
 
-                <p class="animate-fade-in-up delay-200 font-sans text-sm md:text-base tracking-[0.3em] uppercase mb-4 opacity-90">
+<table class="w-full text-left">
 
-                    Porto Seguro • Bahia
+<thead class="bg-hostel-green text-white">
 
-                </p>
+<tr>
 
-                <h1 class="animate-fade-in-up delay-400 font-serif text-5xl md:text-7xl lg:text-8xl italic mb-6">
+<th class="p-4">Turno</th>
 
-                    Hostel & Suítes
+<th class="p-4">Horário</th>
 
-                </h1>
+<th class="p-4">Frequência</th>
 
-                <p class="animate-fade-in-up delay-600 font-serif text-xl md:text-2xl max-w-2xl leading-relaxed opacity-90">
+</tr>
 
-                    Onde a simplicidade encontra a sofisticação em cada detalhe.
+</thead>
 
-                </p>
+<tbody class="divide-y divide-gray-200">
 
-                <div class="absolute bottom-10 animate-bounce">
+<tr>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/70"><polyline points="6 9 12 15 18 9"></polyline></svg>
+<td class="p-4 font-bold">Manhã</td>
 
-                </div>
+<td class="p-4">08:00 AM às 13:00 PM</td>
 
-            </div>
+<td class="p-4">Diário</td>
 
-        </section>
+</tr>
 
+<tr class="bg-gray-50">
 
+<td class="p-4 font-bold">Tarde</td>
 
-        <!-- BOOKING ENGINE -->
+<td class="p-4">13:00 PM às 18:00 PM</td>
 
-        <div class="bg-white py-4 shadow-sm relative z-20">
+<td class="p-4">Diário</td>
 
-            <div id="artax_form_div" class="container mx-auto"></div>
+</tr>
 
-        </div>
+<tr>
 
+<td class="p-4 font-bold">Noite</td>
 
+<td class="p-4">18:00 PM às 23:00 PM</td>
 
-        <!-- A CASA -->
+<td class="p-4">Diário</td>
 
-        <section id="acasa" class="py-24 px-6 md:px-12 bg-[#fdfcf8]">
+</tr>
 
-            <div class="container mx-auto flex flex-col md:flex-row items-center gap-16">
+</tbody>
 
-                <div class="md:w-1/2 space-y-8 text-center md:text-left">
+</table>
 
-                    <span class="font-sans text-xs tracking-[0.2em] text-[#c4a484] uppercase">Nossa Essência</span>
+</div>
 
-                    <h2 class="font-serif text-4xl md:text-5xl text-stone-800 leading-tight">
 
-                        Uma casa com alma,<br /> feita de histórias.
 
-                    </h2>
+<div class="grid md:grid-cols-2 gap-6">
 
-                    <div class="w-16 h-[1px] bg-[#c4a484] mx-auto md:mx-0"></div>
+<div class="bg-yellow-100 p-6 rounded-xl border-l-4 border-hostel-yellow">
 
-                    <p class="font-sans font-light text-stone-600 leading-loose text-sm md:text-base">
+<h3 class="font-bold text-hostel-green mb-2"><i class="fas fa-coffee mr-2"></i> Folgas</h3>
 
-                       O Santo Hostel não é apenas um lugar para dormir, é um convite para desacelerar. 
+<p>1x por semana, programada conforme disponibilidade da equipe.</p>
 
-                        Inspirada na cultura local da região e no design tropical, cada canto foi pensado 
+</div>
 
-                        para despertar os sentidos.
+<div class="bg-green-100 p-6 rounded-xl border-l-4 border-hostel-green">
 
-                    </p>
+<h3 class="font-bold text-hostel-green mb-2"><i class="fas fa-soap mr-2"></i> Lavanderia</h3>
 
-                    <p class="font-serif italic text-xl text-stone-500">
+<p>Grátis 1x por semana (disponível até as 14h).</p>
 
-                        "Luxo é ter tempo, silêncio e espaço."
+</div>
 
-                    </p>
+</div>
 
-                </div>
+</div>
 
-                <div class="md:w-1/2 relative">
+</section>
 
-                    <div class="absolute -top-4 -left-4 w-full h-full border border-[#c4a484]/30 z-0 hidden md:block"></div>
 
-                    <img src="https://github.com/cainanconstantino23-wq/santohostel2/blob/main/2.png?raw=true" alt="Interior da Casa" class="relative z-10 w-full h-auto shadow-xl">
 
-                </div>
+<!-- Responsabilidades Fundamentais (Slide 6) -->
 
-            </div>
+<section class="py-20 px-6 max-w-6xl mx-auto">
 
-        </section>
+<h2 class="text-3xl font-bold text-hostel-green section-header">Responsabilidades Fundamentais</h2>
 
+<div class="grid md:grid-cols-3 gap-8">
 
+<div class="card p-8 text-center border-t-4 border-hostel-green">
 
-        <!-- SUÍTES -->
+<i class="fas fa-star text-hostel-yellow text-4xl mb-4"></i>
 
-        <section id="suites" class="py-24 bg-white">
+<h3 class="text-xl font-bold mb-4">Atendimento</h3>
 
-            <div class="container mx-auto px-6">
+<p class="text-gray-600">Ajudar e informar hóspedes sobre o hostel e nossa cidade.</p>
 
-                <div class="text-center mb-16">
+</div>
 
-                    <span class="font-sans text-xs tracking-[0.2em] text-[#c4a484] uppercase">Acomodações</span>
+<div class="card p-8 text-center border-t-4 border-hostel-green">
 
-                    <h2 class="font-serif text-4xl md:text-5xl text-stone-800 mt-4">Nossas Suítes</h2>
+<i class="fab fa-whatsapp text-hostel-yellow text-4xl mb-4"></i>
 
-                </div>
+<h3 class="text-xl font-bold mb-4">Comunicação</h3>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<p class="text-gray-600">Estar disponível para contato direto com o anfitrião Cainan.</p>
 
-                    <div class="group cursor-pointer">
+</div>
 
-                        <div class="overflow-hidden mb-6 relative aspect-[3/4]">
+<div class="card p-8 text-center border-t-4 border-hostel-green">
 
-                            <img src="https://github.com/cainanconstantino23-wq/santohostel2/blob/main/jasmin.jpg?raw=true" alt="Suíte Jasmin" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+<i class="fas fa-broom text-hostel-yellow text-4xl mb-4"></i>
 
-                        </div>
+<h3 class="text-xl font-bold mb-4">Zeladoria</h3>
 
-                        <h3 class="font-serif text-2xl text-stone-800 mb-3 group-hover:text-[#c4a484] transition-colors">Suíte Jasmin</h3>
+<p class="text-gray-600">Varrer o salão todos os dias e manter tudo ordenado.</p>
 
-                        <p class="font-sans font-light text-sm text-stone-500 leading-relaxed mb-6">Cama king size, varanda privativa e decoração com artesanato local.</p>
+</div>
 
-                        <button class="text-xs font-bold tracking-[0.2em] uppercase border-b border-stone-300 pb-1 hover:border-[#c4a484] hover:text-[#c4a484] transition-all">Reservar Agora</button>
+</div>
 
-                    </div>
+</section>
 
-                    <div class="group cursor-pointer">
 
-                        <div class="overflow-hidden mb-6 relative aspect-[3/4]">
 
-                            <img src="https://github.com/cainanconstantino23-wq/santohostel2/blob/main/flor.jpg?raw=true" alt="Suíte Flor das Águas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+<!-- Gestão de Luzes (Slide 7) -->
 
-                        </div>
+<section class="py-20 px-6 bg-white">
 
-                        <h3 class="font-serif text-2xl text-stone-800 mb-3 group-hover:text-[#c4a484] transition-colors">Suíte Flor das Águas</h3>
+<div class="max-w-6xl mx-auto">
 
-                        <p class="font-sans font-light text-sm text-stone-500 leading-relaxed mb-6">Silêncio absoluto e um banho ao ar livre inesquecível.</p>
+<h2 class="text-3xl font-bold text-hostel-green section-header">Gestão de Luzes e Áreas Comuns</h2>
 
-                        <button class="text-xs font-bold tracking-[0.2em] uppercase border-b border-stone-300 pb-1 hover:border-[#c4a484] hover:text-[#c4a484] transition-all">Reservar Agora</button>
+<div class="grid md:grid-cols-2 gap-12 items-center">
 
-                    </div>
+<div class="space-y-8">
 
-                    <div class="group cursor-pointer">
+<div>
 
-                        <div class="overflow-hidden mb-6 relative aspect-[3/4]">
+<h3 class="font-bold text-hostel-green text-xl mb-2 flex items-center">
 
-                            <img src="https://github.com/cainanconstantino23-wq/santohostel2/blob/main/loft.JPG?raw=true" alt="Loft" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+<i class="fas fa-sun mr-2 text-hostel-yellow"></i> Turno Manhã
 
-                        </div>
+</h3>
 
-                        <h3 class="font-serif text-2xl text-stone-800 mb-3 group-hover:text-[#c4a484] transition-colors">Loft</h3>
+<p class="text-lg">Apagar luzes do banheiro.</p>
 
-                        <p class="font-sans font-light text-sm text-stone-500 leading-relaxed mb-6">Charme e sofisticação a poucos passos do centro histórico.</p>
+</div>
 
-                        <button class="text-xs font-bold tracking-[0.2em] uppercase border-b border-stone-300 pb-1 hover:border-[#c4a484] hover:text-[#c4a484] transition-all">Reservar Agora</button>
+<div>
 
-                    </div>
+<h3 class="font-bold text-hostel-green text-xl mb-2 flex items-center">
 
-                </div>
+<i class="fas fa-cloud-sun mr-2 text-hostel-yellow"></i> Turno Tarde
 
-            </div>
+</h3>
 
-        </section>
+<p class="text-lg">Acender recepção/bar e salão. Guardar louças (16h-17h).</p>
 
+</div>
 
+<div>
 
-        <!-- EXPERIÊNCIAS -->
+<h3 class="font-bold text-hostel-green text-xl mb-2 flex items-center">
 
-        <section id="experiencias" class="py-24 bg-[#fdfcf8]">
+<i class="fas fa-moon mr-2 text-hostel-yellow"></i> Turno Noite
 
-            <div class="container mx-auto px-6">
+</h3>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-0 shadow-2xl overflow-hidden">
+<p class="text-lg">Recolher redes, luz apenas no banheiro ao final.</p>
 
-                    <div class="h-96 md:h-auto overflow-hidden">
+</div>
 
-                        <img src="https://imgmd.net/images/v1/guia/1699818/centro-historico-de-porto-seguro.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cidade Histórica" class="w-full h-full object-cover">
+</div>
 
-                    </div>
+<div class="relative group">
 
-                    <div class="bg-[#ebe9e1] p-12 md:p-20 flex flex-col justify-center">
+<img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&q=80&w=800" alt="Área Comum Hostel" class="rounded-2xl shadow-xl w-full h-80 object-cover">
 
-                        <span class="font-sans text-xs tracking-[0.2em] text-stone-500 uppercase mb-4">Principais pontos turísticos</span>
+<div class="absolute inset-0 bg-hostel-green opacity-10 group-hover:opacity-0 transition-opacity rounded-2xl"></div>
 
-                        <h3 class="font-serif text-3xl md:text-4xl text-stone-800 mb-6">Cidade Histórica</h3>
+</div>
 
-                        <p class="font-sans font-light text-stone-600 leading-loose mb-8">
+</div>
 
-                            Explore o Centro Histórico de Porto Seguro: casários coloridos e o Marco do Descobrimento.
+</div>
 
-                        </p>
+</section>
 
-                    </div>
 
-                    <div class="bg-stone-800 p-12 md:p-20 flex flex-col justify-center text-white order-last md:order-none">
 
-                        <h3 class="font-serif text-3xl md:text-4xl text-white mb-6">O Porto</h3>
+<!-- Navegação PMS (Slide 8) -->
 
-                        <p class="font-sans font-light text-white/80 leading-loose mb-8">Descubra a energia única da Bahia.</p>
+<section class="py-20 px-6 bg-gray-50">
 
-                    </div>
+<div class="max-w-6xl mx-auto">
 
-                    <div class="h-96 md:h-auto overflow-hidden order-3 md:order-none">
+<h2 class="text-3xl font-bold text-hostel-green section-header">Navegação no Sistema (PMS)</h2>
 
-                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b468848?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lazer" class="w-full h-full object-cover">
+<div class="grid md:grid-cols-2 gap-12">
 
-                    </div>
+<div>
 
-                </div>
+<h3 class="text-xl font-bold mb-6 text-gray-700">Fluxo para Hóspedes sem Reserva:</h3>
 
-            </div>
+<ol class="space-y-4 list-decimal list-inside text-lg text-gray-600">
 
-        </section>
+<li class="pl-2">Escolher Data no Calendário</li>
 
-    </main>
+<li class="pl-2">Plano de Tarifa > Buscar</li>
 
+<li class="pl-2">Criar Novo Hóspede (Nome e E-mail)</li>
 
+<li class="pl-2">Reservar e Efetuar Check-in</li>
 
-    <!-- PÁGINA DE VOLUNTARIADO (OCULTA POR PADRÃO) -->
+</ol>
 
-    <section id="voluntariado-content" class="hidden-page pt-32 pb-24 min-h-screen bg-[#fdfcf8]">
+<p class="mt-10 italic text-sm text-gray-400">*Sempre checar o balãozinho de informações no mapa de reservas.</p>
 
-        <div class="container mx-auto px-6 max-w-4xl">
+</div>
 
-            <button onclick="showPage('home-content')" class="text-[#c4a484] uppercase text-xs tracking-widest mb-12 flex items-center gap-2 group">
+<div class="bg-white p-4 rounded-xl shadow-lg">
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+<div class="bg-gray-200 h-64 rounded flex items-center justify-center text-gray-400">
 
-                Voltar para o Início
+<i class="fas fa-desktop text-6xl"></i>
 
-            </button>
+</div>
 
-            <h1 class="font-serif text-5xl text-stone-800 mb-12">Programa de Voluntariado</h1>
+<p class="text-center mt-2 text-xs text-gray-400">Interface do Sistema de Reservas</p>
 
-            <div class="aspect-video mb-12 overflow-hidden shadow-2xl">
+</div>
 
-                <img src="https://github.com/cainanconstantino23-wq/santohostel2/blob/main/2.png?raw=true" class="w-full h-full object-cover" alt="Voluntários no Santo Hostel">
+</div>
 
-            </div>
+</div>
 
-            <div class="prose prose-stone max-w-none">
+</section>
 
-                <p class="text-lg leading-loose text-stone-600 mb-8">
 
-                    Troque as suas habilidades por uma experiência imersiva na Bahia. Procuramos pessoas criativas, responsáveis e que amem o contacto humano.
 
-                </p>
+<!-- Vendas e Consumo (Slide 9) -->
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+<section class="py-20 px-6 max-w-6xl mx-auto">
 
-                    <div class="bg-white p-8 border border-stone-200">
+<h2 class="text-3xl font-bold text-hostel-green section-header">Vendas e Consumo</h2>
 
-                        <h3 class="font-serif text-2xl mb-4">O que oferecemos</h3>
+<div class="grid md:grid-cols-3 gap-8">
 
-                        <ul class="space-y-3 text-stone-500 list-disc pl-5">
+<div class="card overflow-hidden">
 
-                            <li>Acomodação gratuita</li>
+<img src="https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&q=80&w=400" class="w-full h-48 object-cover">
 
-                            <li>Pequeno-almoço incluído</li>
+<div class="p-6">
 
-                            <li>Ambiente colaborativo</li>
+<h3 class="font-bold text-hostel-green">Bebidas & Itens</h3>
 
-                            <li>Dicas locais exclusivas</li>
+<p class="text-sm text-gray-500">Coca-Cola, Budweiser, Águas.</p>
 
-                        </ul>
+</div>
 
-                    </div>
+</div>
 
-                    <div class="bg-white p-8 border border-stone-200">
+<div class="card overflow-hidden">
 
-                        <h3 class="font-serif text-2xl mb-4">O que procuramos</h3>
+<div class="w-full h-48 bg-gray-100 flex items-center justify-center text-gray-300">
 
-                        <ul class="space-y-3 text-stone-500 list-disc pl-5">
+<i class="fas fa-concierge-bell text-5xl"></i>
 
-                            <li>Recepção e boas-vindas</li>
+</div>
 
-                            <li>Criação de conteúdo social</li>
+<div class="p-6">
 
-                            <li>Pequenas manutenções</li>
+<h3 class="font-bold text-hostel-green">Serviços</h3>
 
-                            <li>Interação com hóspedes</li>
+<p class="text-sm text-gray-500">Aluguel de toalhas e cadeados.</p>
 
-                        </ul>
+</div>
 
-                    </div>
+</div>
 
-                </div>
+<div class="bg-green-50 p-6 rounded-xl border-2 border-dashed border-hostel-green">
 
-                <div class="text-center">
+<h3 class="font-bold text-hostel-green mb-4 text-center underline">Passo a Passo:</h3>
 
-                    <a href="https://wa.me/557391524222?text=Olá!%20Tenho%20interesse%20no%20programa%20de%20voluntariado." class="inline-block bg-stone-800 text-white px-12 py-5 font-sans tracking-widest uppercase text-sm hover:bg-[#c4a484] transition-colors">
+<ul class="space-y-3">
 
-                        Candidate-se Agora
+<li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Clicar no Hóspede</li>
 
-                    </a>
+<li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Selecionar "Consumo"</li>
 
-                </div>
+<li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Adicionar Item e <strong>Salvar</strong></li>
 
-            </div>
+<li><i class="fas fa-circle text-hostel-yellow text-[8px] mr-2 align-middle"></i> Lançar Pagamento Parcial</li>
 
-        </div>
+</ul>
 
-    </section>
+</div>
 
+</div>
 
+</section>
 
-    <!-- FOOTER -->
 
-    <footer id="contato" class="bg-[#1c1c1c] text-white/80 py-20 px-6 font-sans font-light">
 
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left">
+<!-- Check-out e Day-use (Slide 10) -->
 
-            <div class="flex flex-col items-center md:items-start">
+<section class="py-20 px-6 bg-gray-900 text-white">
 
-                <h4 class="font-serif text-2xl text-white mb-1 tracking-wide">Santo Hostel</h4>
+<div class="max-w-6xl mx-auto">
 
-                <!-- LINK DE VOLUNTARIADO -->
+<h2 class="text-3xl font-bold text-hostel-yellow section-header">Check-out e Day-use</h2>
 
-                <a href="javascript:void(0)" onclick="showPage('voluntariado-content')" class="font-sans text-xs tracking-[0.3em] uppercase text-[#c4a484] mb-6 hover:text-white transition-colors cursor-pointer block underline decoration-stone-600 underline-offset-4">
+<div class="grid md:grid-cols-2 gap-8">
 
-                    Voluntariado
+<div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
 
-                </a>
+<h3 class="text-xl font-bold text-hostel-yellow mb-6 flex items-center">
 
-                <p class="text-sm leading-loose max-w-xs text-stone-400">Hostel & Suítes em Porto Seguro, Bahia.</p>
+<i class="fas fa-door-open mr-3"></i> Checkout (até 11h)
 
-                <div class="flex space-x-6 mt-8 text-[#c4a484]">
+</h3>
 
-                    <a href="https://www.instagram.com/santohostel.ps/" target="_blank">
+<ul class="space-y-4">
 
-                        <svg class="cursor-pointer hover:text-white transition-colors" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Consultar débitos no sistema.</li>
 
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+<li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3"></i> Perguntar sobre a experiência.</li>
 
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<li class="flex items-center"><i class="fas fa-check text-hostel-yellow mr-3 font-bold"></i> Pedir Avaliação: Fundamental!</li>
 
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+</ul>
 
-                        </svg>
+</div>
 
-                    </a>
+<div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm">
 
-                </div>
+<h3 class="text-xl font-bold text-hostel-yellow mb-6 flex items-center">
 
-            </div>
+<i class="fas fa-suitcase mr-3"></i> Day-use (R$ 30,00)
 
-            <div class="flex flex-col items-center md:items-start">
+</h3>
 
-                <h5 class="font-serif text-lg text-white mb-6">Contato</h5>
+<p class="mb-4">Permite uso de todas as dependências, exceto quartos.</p>
 
-                <div class="space-y-4 text-sm text-stone-400">
+<p class="text-sm opacity-70 italic">*Guardar bagagem é cortesia na recepção.</p>
 
-                    <p>Rua Ubirajara, 08 - Pacatá - Porto Seguro- BA</p>
+</div>
 
-                    <p>+55 (73) 99152-4222</p>
+</div>
 
-                    <p>santohostel.ps@gmail.com</p>
+</div>
 
-                </div>
+</section>
 
-            </div>
 
-            <div class="flex flex-col items-center md:items-start">
 
-                <h5 class="font-serif text-lg text-white mb-6">Newsletter</h5>
+<!-- Dúvidas (Slide 11) -->
 
-                <form class="w-full max-w-xs flex border-b border-stone-600 pb-2">
+<footer class="bg-hostel-yellow py-24 px-6 text-center">
 
-                    <input type="email" placeholder="Seu e-mail" class="bg-transparent w-full outline-none text-white text-sm">
+<div class="max-w-xl mx-auto">
 
-                    <button type="button" class="text-[#c4a484] uppercase text-xs tracking-widest">Enviar</button>
+<h2 class="text-5xl font-black text-hostel-green mb-8">Dúvidas?</h2>
 
-                </form>
+<p class="text-xl text-hostel-green mb-10 font-medium">Fale com o Cainan no WhatsApp</p>
 
-            </div>
 
-        </div>
+<a href="https://wa.me/seunumeroaqui" target="_blank" class="inline-block bg-hostel-green text-white p-6 rounded-full text-4xl shadow-2xl hover:scale-110 transition-transform">
 
-        <div class="border-t border-stone-800 mt-20 pt-8 text-center text-xs text-stone-600 tracking-widest uppercase">
+<i class="fab fa-whatsapp"></i>
 
-            &copy; 2026 Santo Hostel. Todos os direitos reservados.
+</a>
 
-        </div>
 
-    </footer>
+<p class="mt-16 text-hostel-green font-bold tracking-wider uppercase">
 
+Vamos fazer de 2026 um ano incrível no Santo Hostel!
 
+</p>
 
-    <!-- Bibliotecas de Terceiros -->
+</div>
 
-    <link rel="stylesheet" href="https://artaxnet.com/css/search_form_ebe.css">
+</footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-
-
-    <script>
-
-        const navbar = document.getElementById('navbar');
-
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        let isMenuOpen = false;
-
-
-
-        function showPage(pageId) {
-
-            const homeContent = document.getElementById('home-content');
-
-            const voluntariadoContent = document.getElementById('voluntariado-content');
-
-            
-
-            if (pageId === 'voluntariado-content') {
-
-                homeContent.style.display = 'none';
-
-                voluntariadoContent.style.display = 'block';
-
-                navbar.classList.add('bg-white/95', 'shadow-sm', 'py-4', 'text-stone-800');
-
-                navbar.classList.remove('bg-transparent', 'text-white');
-
-            } else {
-
-                homeContent.style.display = 'block';
-
-                voluntariadoContent.style.display = 'none';
-
-                if (window.scrollY <= 50) {
-
-                    navbar.classList.remove('bg-white/95', 'shadow-sm', 'text-stone-800');
-
-                    navbar.classList.add('bg-transparent', 'text-white');
-
-                }
-
-            }
-
-            window.scrollTo(0, 0);
-
-            isMenuOpen = false;
-
-            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-
-        }
-
-
-
-        window.addEventListener('scroll', () => {
-
-            const homeContent = document.getElementById('home-content');
-
-            if (homeContent.style.display !== 'none') {
-
-                if (window.scrollY > 50) {
-
-                    navbar.classList.add('bg-white/95', 'shadow-sm', 'py-4', 'text-stone-800');
-
-                    navbar.classList.remove('bg-transparent', 'py-6', 'text-white');
-
-                } else {
-
-                    navbar.classList.remove('bg-white/95', 'shadow-sm', 'py-4', 'text-stone-800');
-
-                    navbar.classList.add('bg-transparent', 'py-6', 'text-white');
-
-                }
-
-            }
-
-        });
-
-
-
-        mobileMenuBtn.addEventListener('click', () => {
-
-            isMenuOpen = !isMenuOpen;
-
-            if (isMenuOpen) {
-
-                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-
-            } else {
-
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-
-            }
-
-        });
-
-
-
-        // Booking Engine
-
-        document.addEventListener('DOMContentLoaded', () => {
-
-            fetch("https://santo-hostel.artaxnet.com/api/load-form/ebe")
-
-                .then(response => response.text())
-
-                .then(html => {
-
-                    const formContainer = document.getElementById("artax_form_div");
-
-                    if (formContainer) {
-
-                        formContainer.innerHTML = html;
-
-                        const script = document.createElement('script');
-
-                        script.src = 'https://artaxnet.com/js/form_search_artax.js';
-
-                        script.async = true;
-
-                        document.body.appendChild(script);
-
-                    }
-
-                });
-
-        });
-
-    </script>
 
 </body>
 
