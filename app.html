@@ -1,640 +1,343 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta Podcast de Saúde | Daime Filmes & Dr. Mário</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts modernas e limpas -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Inter:wght@300;400;600;700&family=Syne:wght@500;800&family=Archivo+Black&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Santo Hostel Concierge - Bem-vindo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;0,700;1,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
         tailwind.config = {
+            darkMode: "class",
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        syne: ['Syne', 'sans-serif'],
-                        heavy: ['Archivo Black', 'sans-serif'],
+                    "colors": {
+                        "surface-dim": "#dbdad6",
+                        "on-secondary-container": "#676160",
+                        "on-secondary-fixed-variant": "#4b4644",
+                        "background": "#faf9f5",
+                        "primary-fixed-dim": "#e3c19f",
+                        "surface-muted": "#EBE9E1",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#304051",
+                        "surface-container-high": "#e9e8e4",
+                        "on-background": "#1b1c1a",
+                        "primary-fixed": "#ffddbb",
+                        "on-surface": "#1b1c1a",
+                        "outline": "#80756b",
+                        "tertiary-fixed": "#d4e4fa",
+                        "tertiary-container": "#9babc0",
+                        "ink-deep": "#1C1C1C",
+                        "inverse-surface": "#2f312e",
+                        "on-secondary-fixed": "#1e1b1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#e3c19f",
+                        "surface-container-highest": "#e3e2df",
+                        "primary": "#735a3e",
+                        "surface-bright": "#faf9f5",
+                        "inverse-on-surface": "#f2f1ed",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#5a4229",
+                        "on-surface-variant": "#4e453d",
+                        "on-tertiary-fixed": "#0c1d2d",
+                        "on-primary-container": "#503a21",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#d2c4b9",
+                        "surface": "#faf9f5",
+                        "tertiary": "#506072",
+                        "secondary-container": "#e6dedc",
+                        "surface-variant": "#e3e2df",
+                        "surface-tint": "#735a3e",
+                        "primary-container": "#c4a484",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#291803",
+                        "tertiary-fixed-dim": "#b8c8de",
+                        "surface-container-low": "#f4f4f0",
+                        "secondary-fixed-dim": "#cdc5c3",
+                        "secondary": "#635d5c",
+                        "on-tertiary-fixed-variant": "#39485a",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e9e1df",
+                        "surface-container": "#efeeea"
                     },
-                    colors: {
-                        clinicNavy: '#004a7c', // Azul oficial da Daime
-                        clinicTeal: '#00bcd4', // Ciano médico elegante
-                        clinicSlate: '#475569', // Cinza clínico
-                        acidGreen: '#d4ff00',  // Sotaque cirúrgico da Daime
-                        warmCreamBg: '#F4F1EA', // Cor de fundo do mockup
-                        terracotta: '#D45D3F', // Cor de destaque do mockup
-                        pureWhite: '#ffffff',
-                        softGray: '#f8fafc'
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Literata"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Literata"],
+                        "display-lg": ["Literata"],
+                        "label-md": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600"}]
                     }
-                }
-            }
+                },
+            },
         }
     </script>
-    
-    <style>
+<style>
         body {
-            background-color: #ffffff;
-            color: #1e293b;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            background-color: #faf9f5;
+            color: #1b1c1a;
+            scroll-behavior: smooth;
         }
-        .noise-soft {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/16mm_film_grain_texture.jpg');
-            opacity: 0.015; /* Sutilíssimo grão cinematográfico */
-            mix-blend-mode: overlay;
-            pointer-events: none;
-            z-index: 9999;
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .soft-shadow {
+            box-shadow: 0 10px 30px -10px rgba(41, 37, 36, 0.08);
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .tropical-blur {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f8fafc;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
-</head>
-<body class="custom-scrollbar selection:bg-clinicNavy/10 selection:text-clinicNavy">
-
-    <div class="noise-soft"></div>
-
-    <!-- Header Fixo -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/85 backdrop-blur-md border-b border-slate-100 py-4 px-6 md:px-12 transition-all">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <span class="font-heavy text-sm tracking-tighter text-clinicNavy">DAIME <span class="text-clinicTeal">FILMES</span></span>
-                <span class="w-[1px] h-4 bg-slate-200"></span>
-                <span class="font-display font-medium text-[10px] tracking-widest text-slate-400 uppercase">PROPOSTA</span>
-            </div>
-            <div class="hidden md:flex items-center space-x-8 text-[11px] uppercase tracking-widest font-bold text-slate-500">
-                <a href="#conceito" class="hover:text-clinicNavy transition-colors">O Conceito</a>
-                <a href="#roteiro" class="hover:text-clinicNavy transition-colors">Roteiro</a>
-                <a href="#logistica" class="hover:text-clinicNavy transition-colors">Logística</a>
-                <a href="#investimento" class="hover:text-clinicNavy transition-colors">Comercial</a>
-            </div>
-            <div>
-                <a href="#investimento" class="px-5 py-2 bg-[#D45D3F] text-white font-display text-[10px] uppercase tracking-wider font-bold rounded-lg hover:bg-[#B54D33] transition-colors inline-block">
-                    Ver Investimento
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Seção Hero Clean -->
-    <section class="relative min-h-[85vh] flex items-center justify-center pt-32 pb-16 px-6 bg-gradient-to-b from-slate-50 to-white">
-        <div class="absolute inset-0 pointer-events-none overflow-hidden">
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-clinicTeal/5 rounded-full blur-[120px]"></div>
-        </div>
-
-        <div class="max-w-4xl mx-auto text-center z-10 relative reveal active">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-clinicNavy/5 text-clinicNavy font-semibold text-[10px] tracking-widest uppercase mb-6">
-                <i data-lucide="sparkles" class="w-3 h-3 text-clinicTeal"></i> CO-CRIAÇÃO AUDIOVISUAL • DR. MÁRIO
-            </span>
-            
-            <h1 class="font-display font-bold text-3xl md:text-5xl lg:text-6xl text-slate-900 leading-tight mb-8 tracking-tight">
-                Ciência, Saúde e <br>
-                <span class="text-clinicNavy italic">Impacto Regional</span>
-            </h1>
-            
-            <p class="text-sm md:text-base text-slate-600 max-w-2xl mx-auto mb-6 font-light leading-relaxed">
-                Desenvolvemos o projeto de um podcast/talk-show itinerante focado em educação em saúde para as cidades de <strong class="text-slate-800 font-semibold">Porto Seguro, Trancoso, Eunápolis e Cabrália</strong>. Um conteúdo elegante, didático e de utilidade pública para o YouTube.
-            </p>
-        </div>
-    </section>
-
-    <!-- Seção Conceito -->
-    <section id="conceito" class="py-24 px-6 md:px-12 border-b border-slate-100 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5 space-y-5 reveal">
-                    <span class="text-clinicTeal font-bold text-xs tracking-widest block uppercase">O Posicionamento</span>
-                    <h2 class="font-display font-bold text-3xl text-slate-900 tracking-tight leading-none">
-                        Descentralização e Democratização da Informação de Saúde
-                    </h2>
-                    <p class="text-slate-600 text-sm leading-relaxed font-light">
-                        O morador se vê representado na tela. Em vez de assistir a um programa gravado em um estúdio genérico em São Paulo ou Salvador, ele assiste a uma produção com padrão de cinema feita na sua própria terra, discutindo os desafios de saúde que afetam diretamente a sua comunidade.
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-low shadow-sm h-16 flex justify-between items-center px-margin-mobile md:px-margin-desktop transition-all duration-200">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform" data-icon="menu">menu</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Santo Hostel</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-auto" data-alt="A warm and professional portrait of a friendly concierge staff member in Porto Seguro, Bahia. They are wearing a light linen shirt, smiling warmly at the camera, with a sun-drenched, lush tropical garden in the soft-focus background. The lighting is golden hour, creating a welcoming, high-end hospitality atmosphere consistent with a boutique hostel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAICGEfYu0Kx6y2N6EmQ65Vecd26sSVN9J6izZ915Iwl3FF-yk1-FCONSPQg9pfXhjUD7Sch_n2wDuZXB7vM-siJWtIevzykt9QZW6AjC4H2lJDyU66IorniFWhB5nQhA5mmeLAcl6mBQ7iJUrgQdJ6T42H7UOP9jbbYyfK76vtFu8bGQ18cP7JYjTIdqgEJHPKzEZqBATqbuER680zUKrkRmSjt2A-WtlEodL5Z7tpH1dM8kRsIY5fh-Q14NWPEEB0ohMR0AvG8g">
+</div>
+</div>
+</header>
+<main class="pt-16 pb-24 md:pb-8 max-w-container-max mx-auto overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative h-[397px] md:h-[530px] w-full flex items-end overflow-hidden mb-gutter">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A panoramic wide-angle aerial shot of the historic colorful buildings of Porto Seguro at sunset, mirroring the provided reference image. The vibrant yellow, red, and blue facades glow under the golden sunlight, framed by the lush green canopy of ancient trees. The atmosphere is peaceful and evokes the soul of Bahia, emphasizing simplicity meeting sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCEGWjNH0IAtVvnaai8HSDMkehr8s75jvhdzlTKLeAoJlJJWlW5CvWPynqcj4f4yKyp8ov8Fa7Y-762TH2jGWRmk4CmkhwnUL0c-LxD2NAXOsNXUoP0KzvL0l5Y9qfHqOzeEvKErdJZBZtSBdf763W3e6M7-_gnvLpAJKcX22tOW1f-gnQOkDOQbE0WCzipydNbuMGF9AwKVL6Bl2gotl8XpelG_krMpmK7I6ZXpmhq1mNRWOMFUP1nzc2TLm8g79ukkTYerkYSw">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<div class="relative z-10 p-margin-mobile md:p-margin-desktop text-white">
+<p class="font-label-md text-label-md uppercase tracking-widest mb-2 text-primary-fixed">Bem-vindo à Bahia</p>
+<h2 class="font-display-lg text-display-lg leading-tight mb-4">Sinta-se em casa, longe de casa.</h2>
+<div class="flex gap-3">
+<span class="px-3 py-1 bg-white/20 tropical-blur rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span> Porto Seguro
+                    </span>
+<span class="px-3 py-1 bg-white/20 tropical-blur rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="sunny">sunny</span> 28°C
+                    </span>
+</div>
+</div>
+</section>
+<!-- Quick Actions Bento Grid -->
+<section class="px-margin-mobile md:px-0 grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+<!-- Critical Path: Check-in -->
+<a href="estadia.html" class="col-span-2 bg-primary-container text-on-primary-container p-6 rounded-xl flex flex-col justify-between min-h-[160px] soft-shadow active:scale-[0.98] transition-all cursor-pointer"><div><span class="material-symbols-outlined text-3xl mb-2" data-icon="key">key</span><h3 class="font-title-md text-title-md">Check-in Online</h3><p class="font-body-md text-body-md opacity-90">Agilize sua chegada e receba sua senha digital.</p></div><div class="flex items-center gap-2 mt-4 font-label-md"><span class="">Começar agora</span><span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span></div></a>
+<!-- WhatsApp Concierge -->
+<a class="bg-surface-muted p-5 rounded-xl flex flex-col items-center justify-center text-center gap-2 soft-shadow border-l-4 border-primary hover:bg-secondary-container transition-colors" href="https://wa.me/557391524222">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="chat">chat</span>
+<span class="font-label-md text-label-md">Falar no WhatsApp</span>
+</a>
+<!-- WiFi Info -->
+<div class="bg-surface-muted p-5 rounded-xl flex flex-col items-center justify-center text-center gap-2 soft-shadow border-l-4 border-primary transition-all">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="wifi">wifi</span>
+<span class="font-label-md text-label-md">Senha do Wi-Fi</span>
+</div>
+</section>
+<!-- Soul of the House Section -->
+<section class="px-margin-mobile md:px-0 mb-16">
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/2">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-4">Nossa Essência</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Uma casa com alma, feita de histórias.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                        O Santo Hostel não é apenas um lugar para dormir, é um convite para desacelerar. Inspirada na cultura local da região e no design tropical, cada canto foi pensado para despertar os sentidos. 
                     </p>
-                    <p class="text-slate-600 text-sm leading-relaxed font-light">
-                        Em resumo, o projeto transforma a comunicação médica em um legado educativo para a região, elevando o nível de consciência sobre saúde preventiva e melhorando a qualidade de vida da população local através da informação.
-                    </p>
-                </div>
-
-                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-5 reveal">
-                    <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-8 h-8 rounded-lg bg-clinicNavy/5 flex items-center justify-center text-clinicNavy mb-4">
-                            <i data-lucide="heart" class="w-4 h-4"></i>
+<blockquote class="border-l-4 border-primary-container pl-6 py-2 italic font-headline-lg text-title-md text-primary mb-8">
+                        "Luxo é ter tempo, silêncio e espaço."
+                    </blockquote>
+<a href="guia.html" class="px-8 py-3 bg-primary text-white rounded-full font-label-md flex items-center gap-2 hover:opacity-90 transition-opacity inline-flex">Conhecer Experiências <span class="material-symbols-outlined" data-icon="explore">explore</span></a>
+</div>
+<div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+<div class="rounded-xl overflow-hidden aspect-[3/4] soft-shadow mt-8">
+<img class="w-full h-full object-cover" data-alt="A close-up artistic shot of artisanal decorations inside Santo Hostel. The image features hand-woven macramé, locally crafted pottery, and vibrant textiles against a soft neutral-toned wall. The lighting is soft and natural, emphasizing the modern-tactile aesthetic of the boutique hostel. The color palette includes warm ochre, terracotta, and soft creams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMIcWgTk981DOYJLNUCYXwkidFdR-g6au9uchn-lDnSKyjryTHp1TXrSRPukgh5V_JufN5r2YPht_lrKeZDM8ljDaRvAFW4wpyvx5GF5EuD_k84_iq2LPWtEabyNR9hCjSJuJZociDll3rEGyJ5lLE6cxw0V-0kELomXCA9fAEBJwXYn_TkPRSLA9sgmADbEJvJXv53FpUYgaH-J4gkJTedAmkQFbGYD1GhSbLDk3S8zwcVIRU-Att6SZ6wyV7Gxnl49NUx_kT-Q">
+</div>
+<div class="rounded-xl overflow-hidden aspect-[3/4] soft-shadow">
+<img class="w-full h-full object-cover" data-alt="A lush, sun-dappled interior courtyard of a tropical hostel. Tall palm leaves and exotic plants fill the frame, with a hint of a hammock and a wooden deck. The mood is serene and peaceful, illustrating the 'Soul of the House' philosophy where nature meets sophisticated simplicity in Porto Seguro, Bahia." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmbBkztmd2S9gCLjWsdMDP1cKU2jjkH1YrynhWRBgUbqcW2tDb0C8iVatc8nBDqdE27z3RCrHlyBmj38kqDaYqWDd1pjpQTW_yEGeUEZ7MK8qI7HO54mn0i7sR82Y3I2wKvOIMdFdwyVkhZI3x9d1tD1hK3ChkbxW6ZLVKFA2DrMTyrvLvWKX6_DZaDERU3sj5AN0GHn3dPMzjr027yfrOKFcAmtInwiYBDNQHHqTw2Yf-8YxbZu9Y-EeR-YIDccb6UJYGEjxinw">
+</div>
+</div>
+</div>
+</section>
+<!-- Accommodations Horizontal Scroll -->
+<section class="mb-16">
+<div class="px-margin-mobile md:px-0 flex justify-between items-end mb-6">
+<div>
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">Acomodações</span>
+<h2 class="font-headline-lg text-headline-lg">Nossas Suítes</h2>
+</div>
+<a href="guia.html" class="text-primary font-label-md flex items-center gap-1">Ver todas <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></a>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-6 px-margin-mobile md:px-0 pb-6">
+<!-- Suite 1 -->
+<div class="flex-none w-72 md:w-96 bg-white rounded-2xl overflow-hidden soft-shadow group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="The Suíte Jasmin interior at Santo Hostel. A large king-size bed with crisp white linens and a traditional hand-woven blanket. A private balcony is visible in the background with greenery. The room features high ceilings and polished wood floors, combining historic charm with contemporary comfort in a bright, airy setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWkNiEiiqsOBwXncsvsyQPu_ap8vXV2rDWmZKo5M5UUmlqD95Q03T01a8gVKmPw7qD_i7rC3i8K5jFEpkRo08ghoZhZuH2BfWDE-SARfsgnkPgaHOmfqhMx-z0u30oJa_wfg-KaJgWq0UxzyvZfCSd2M11LuvgcWLKw59dLODnFqmC8tWiby5pwoApKiDVM_BpNiI28bOxt70AHrGBh1WaDPIfknbKGEwokZDM9tV1DDmndxdyYNwuE7X2v-PK-98vx9GO0vV2mA">
+<div class="absolute top-4 right-4 bg-white/80 tropical-blur px-2 py-1 rounded text-label-sm font-label-sm">
+                            Jasmin
                         </div>
-                        <h4 class="font-display font-bold text-slate-800 text-sm mb-2">Utilidade Pública</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Foco didático em esclarecer doenças comuns, exames preventivos e sanar as dúvidas recorrentes dos pacientes da região.</p>
-                    </div>
-
-                    <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-8 h-8 rounded-lg bg-clinicNavy/5 flex items-center justify-center text-clinicTeal mb-4">
-                            <i data-lucide="video" class="w-4 h-4"></i>
+</div>
+<div class="p-6">
+<h4 class="font-title-md text-title-md mb-2">Suíte Jasmin</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Imersão na história com conforto contemporâneo e artesanato local.</p>
+<button class="w-full py-2 border border-outline text-on-surface rounded-lg font-label-md hover:bg-surface-muted transition-colors">Reservar Agora</button>
+</div>
+</div>
+<!-- Suite 2 -->
+<div class="flex-none w-72 md:w-96 bg-white rounded-2xl overflow-hidden soft-shadow group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="The Suíte Flor das Águas at Santo Hostel. The image focuses on an incredible outdoor shower area surrounded by dense tropical plants and stones. The indoor part of the suite shows a minimalist wooden bed frame and soft mood lighting, creating a retreat of absolute silence and peace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiJ35_Cy-U2ZrOFzgruLEcwaJIsIe3gC5kTHsuwEbQ92E55iRYu7nW598TnHvRiBxF6R9-wgUpccHjNZWMftl-IFjdFm4mGmqiYT3R_DzXzY5LPZsuAuyyJjO5dBZUGHJLZoQGJIcWiOLyBSsV8CEQ7Enz1JxSjA0IbeARNNXSChS3RffJQXxZKiGAxpid1iMCuIjg6Gj33r54D8Oz9zSh7_fwqESEOERPELty0Aq7npToh8ajHAB0IuwRs3Ibcj3KdXC924D9fQ">
+<div class="absolute top-4 right-4 bg-white/80 tropical-blur px-2 py-1 rounded text-label-sm font-label-sm">
+                            Natureza
                         </div>
-                        <h4 class="font-display font-bold text-slate-800 text-sm mb-2">Padrão Cinematográfico</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Produção refinada com 3 cams, equipamentos de luzes profissionais e lentes que proporcionam profundidade e foco premium.</p>
-                    </div>
-
-                    <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-8 h-8 rounded-lg bg-clinicNavy/5 flex items-center justify-center text-clinicTeal mb-4">
-                            <i data-lucide="compass" class="w-4 h-4"></i>
+</div>
+<div class="p-6">
+<h4 class="font-title-md text-title-md mb-2">Flor das Águas</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Rodeada pelo verde, oferece silêncio absoluto e banho ao ar livre.</p>
+<button class="w-full py-2 border border-outline text-on-surface rounded-lg font-label-md hover:bg-surface-muted transition-colors">Reservar Agora</button>
+</div>
+</div>
+<!-- Suite 3 -->
+<div class="flex-none w-72 md:w-96 bg-white rounded-2xl overflow-hidden soft-shadow group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A spacious modern Loft at Santo Hostel. The design features integrated living space with a stylish leather sofa, a small kitchenette with wooden accents, and large windows looking out towards the historic center of Porto Seguro. The interior is sophisticated yet cozy, with polished concrete floors and vibrant art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqsGr2_TBtbdCkqtBiun23_kA28DuzDsrUP2SVROlbvOTJLRFStDks1aL5F0HU4qO9jVHRExYmkeIsB2FmTQSaLdNI8XLkDoXdgub7HNYw1-9-2S32bHei0hYnXogq2JG49UP4a3Gw8_ccJXgSm8jwcfEo8wS0_qH0R3Ab-35WaCTs79WbvGUyfLKoJ3JSp9DiMK5Sc0f0LFKX9Alwzl-hx8QA09vQULZWydjzU2t73i4Z3HJpXZjGLfJvIdQlbAhWULUb1-qC8Q">
+<div class="absolute top-4 right-4 bg-white/80 tropical-blur px-2 py-1 rounded text-label-sm font-label-sm">
+                            Espaçoso
                         </div>
-                        <h4 class="font-display font-bold text-slate-800 text-sm mb-2">Formato Itinerante</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Cenários flexíveis, divididos entre laboratórios e pontos turísticos emblemáticos, valorizando a identidade regional.</p>
-                    </div>
-
-                    <div class="p-6 bg-slate-50 rounded-xl border border-slate-100">
-                        <div class="w-8 h-8 rounded-lg bg-clinicNavy/5 flex items-center justify-center text-clinicNavy mb-4">
-                            <i data-lucide="scissors" class="w-4 h-4"></i>
-                        </div>
-                        <h4 class="font-display font-bold text-slate-800 text-sm mb-2">Pílulas de Engajamento</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">Fatiamento inteligente de cada episódio em 3 a 4 cortes verticais (Reels/Shorts) legendados para as redes sociais.</p>
-                    </div>
-                </div>
-            </div>
+</div>
+<div class="p-6">
+<h4 class="font-title-md text-title-md mb-2">Loft Histórico</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Charme e sofisticação a poucos passos do centro histórico.</p>
+<button class="w-full py-2 border border-outline text-on-surface rounded-lg font-label-md hover:bg-surface-muted transition-colors">Reservar Agora</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommendations Grid -->
+<section class="px-margin-mobile md:px-0 mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-8 text-center">Dicas Locais</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 bg-white rounded-xl soft-shadow border-t-4 border-primary">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="history_edu">history_edu</span>
+<h4 class="font-title-md text-title-md mb-2">Centro Histórico</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Explore casarios coloridos e igrejas coloniais. O berço do Brasil a poucos minutos.</p>
+</div>
+<div class="p-6 bg-white rounded-xl soft-shadow border-t-4 border-primary">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="restaurant">restaurant</span>
+<h4 class="font-title-md text-title-md mb-2">Gastronomia</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Os melhores sabores da Bahia, da moqueca tradicional ao acarajé da praça.</p>
+</div>
+<div class="p-6 bg-white rounded-xl soft-shadow border-t-4 border-primary">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="beach_access">beach_access</span>
+<h4 class="font-title-md text-title-md mb-2">Praias Desertas</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Descubra refúgios de areia branca e águas mornas longe do agito turístico.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low shadow-lg rounded-t-xl z-50 flex justify-around items-center pt-2 pb-6 px-2">
+<a href="index.html" class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform duration-300 active:scale-90"><span class="material-symbols-outlined" data-icon="home">home</span><span class="font-label-sm text-label-sm">Home</span></a>
+<a href="estadia.html" class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-secondary-container transition-transform duration-300 active:scale-90"><span class="material-symbols-outlined" data-icon="key">key</span><span class="font-label-sm text-label-sm">My Stay</span></a>
+<a href="guia.html" class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-secondary-container transition-transform duration-300 active:scale-90"><span class="material-symbols-outlined" data-icon="explore">explore</span><span class="font-label-sm text-label-sm">Guide</span></a>
+<a href="regras.html" class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-secondary-container transition-transform duration-300 active:scale-90"><span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span><span class="font-label-sm text-label-sm">Contact</span></a>
+</nav>
+<!-- Footer (Desktop) -->
+<footer class="hidden md:block bg-surface-container-highest py-16 px-margin-desktop mt-12 border-t border-outline-variant">
+<div class="max-w-container-max mx-auto grid grid-cols-4 gap-12">
+<div class="col-span-1">
+<h3 class="font-headline-lg text-primary mb-4">Santo Hostel</h3>
+<p class="font-body-md text-on-surface-variant">Sinta-se em casa, longe de casa. Um refúgio de paz em Porto Seguro, Bahia.</p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface uppercase mb-6">Contato</h5>
+<p class="font-body-md text-on-surface-variant mb-2">Rua Ubirajara, 08 - Pacatá</p>
+<p class="font-body-md text-on-surface-variant mb-2">+55 (73) 99152-4222</p>
+<p class="font-body-md text-on-surface-variant">santohostel.ps@gmail.com</p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface uppercase mb-6">Links</h5>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Voluntariado</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Manual do Hóspede</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Política de Privacidade</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-on-surface uppercase mb-6">Newsletter</h5>
+<div class="flex">
+<input class="bg-surface border-none rounded-l-lg w-full focus:ring-1 focus:ring-primary" placeholder="Seu e-mail" type="email">
+<button class="bg-primary text-white px-4 rounded-r-lg hover:opacity-90 transition-opacity">Enviar</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-16 pt-8 border-t border-outline-variant text-center font-label-sm text-on-surface-variant opacity-60">
+            © 2026 SANTO HOSTEL. TODOS OS DIREITOS RESERVADOS.
         </div>
-    </section>
-
-    <!-- Seção Roteiro -->
-    <section id="roteiro" class="py-24 px-6 md:px-12 border-b border-slate-100 bg-slate-50">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-                <span class="text-clinicTeal font-bold text-xs tracking-widest block uppercase mb-2">Fluxo de Conteúdo</span>
-                <h2 class="font-display font-bold text-3xl text-slate-900 tracking-tight">O Roteiro de 60 Minutos</h2>
-                <p class="text-slate-500 text-xs mt-2 font-light">
-                    Desenvolvemos uma estrutura didática para manter o dinamismo técnico e a retenção do público no YouTube.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <!-- Timeline Accordion -->
-                <div class="lg:col-span-5 space-y-2.5 reveal">
-                    <button onclick="selectTimeline(0)" id="t-btn-0" class="w-full text-left p-4 rounded-xl border border-clinicNavy/25 bg-white shadow-sm transition-all flex items-center justify-between group">
-                        <div class="flex items-center space-x-3">
-                            <span class="font-display font-bold text-clinicNavy text-xs">01</span>
-                            <span class="font-semibold text-xs text-slate-800">Abertura Cinematográfica</span>
-                        </div>
-                        <span class="text-[10px] text-slate-400 font-mono">00:00 - 03:00</span>
-                    </button>
-
-                    <button onclick="selectTimeline(1)" id="t-btn-1" class="w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center justify-between group">
-                        <div class="flex items-center space-x-3">
-                            <span class="font-display font-bold text-slate-400 text-xs group-hover:text-clinicNavy">02</span>
-                            <span class="font-medium text-xs text-slate-600 group-hover:text-slate-800">Contexto Regional</span>
-                        </div>
-                        <span class="text-[10px] text-slate-400 font-mono">03:00 - 15:00</span>
-                    </button>
-
-                    <button onclick="selectTimeline(2)" id="t-btn-2" class="w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center justify-between group">
-                        <div class="flex items-center space-x-3">
-                            <span class="font-display font-bold text-slate-400 text-xs group-hover:text-clinicNavy">03</span>
-                            <span class="font-medium text-xs text-slate-600 group-hover:text-slate-800">O Miolo Clínico</span>
-                        </div>
-                        <span class="text-[10px] text-slate-400 font-mono">15:00 - 45:00</span>
-                    </button>
-
-                    <button onclick="selectTimeline(3)" id="t-btn-3" class="w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center justify-between group">
-                        <div class="flex items-center space-x-3">
-                            <span class="font-display font-bold text-slate-400 text-xs group-hover:text-clinicNavy">04</span>
-                            <span class="font-medium text-xs text-slate-600 group-hover:text-slate-800">Interação da Comunidade</span>
-                        </div>
-                        <span class="text-[10px] text-slate-400 font-mono">45:00 - 55:00</span>
-                    </button>
-
-                    <button onclick="selectTimeline(4)" id="t-btn-4" class="w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center justify-between group">
-                        <div class="flex items-center space-x-3">
-                            <span class="font-display font-bold text-slate-400 text-xs group-hover:text-clinicNavy">05</span>
-                            <span class="font-medium text-xs text-slate-600 group-hover:text-slate-800">Encerramento Prático</span>
-                        </div>
-                        <span class="text-[10px] text-slate-400 font-mono">55:00 - 60:00</span>
-                    </button>
-                </div>
-
-                <!-- Timeline Preview Screen -->
-                <div class="lg:col-span-7 reveal">
-                    <div id="timeline-display-card" class="p-8 bg-white rounded-xl border border-slate-200 shadow-sm min-h-[300px] flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center">
-                                <span id="t-tag" class="px-2.5 py-0.5 bg-clinicNavy/5 text-clinicNavy text-[9px] font-bold uppercase tracking-wider rounded">Abertura</span>
-                                <span id="t-time" class="text-xs text-slate-400 font-medium flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-clinicTeal"></i> 0 a 3 min</span>
-                            </div>
-                            
-                            <h3 id="t-title" class="font-display font-bold text-lg text-slate-900">Introdução Cinematográfica</h3>
-                            <p id="t-desc" class="text-slate-600 text-xs leading-relaxed font-light">
-                                Imagens de apoio da locação do dia (o amanhecer em Trancoso ou o maquinário avançado do laboratório). O Mário apresenta o tema de forma impactante, contextualizando os dados clínicos da nossa região antes de chamar o especialista.
-                            </p>
-                        </div>
-
-                        <div class="border-t border-slate-100 pt-5 mt-6 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider">
-                            <span id="t-speaker" class="text-clinicNavy">Foco: Mário</span>
-                            <span id="t-visual" class="text-slate-400 font-normal normal-case">Visual: Drone / Imagens de Apoio</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Logística -->
-    <section id="logistica" class="py-24 px-6 md:px-12 border-b border-slate-100 bg-white">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                <div class="lg:col-span-6 space-y-6 reveal">
-                    <span class="text-clinicTeal font-bold text-xs tracking-widest block uppercase">Engenharia Audiovisual</span>
-                    <h2 class="font-display font-bold text-3xl text-slate-900 tracking-tight">
-                        Logística em Campo Segura e Silenciosa
-                    </h2>
-                    <p class="text-slate-600 text-sm leading-relaxed font-light">
-                        Operar de maneira itinerante ao ar livre exige domínio de variáveis severas. Planejamos a engenharia audiovisual completa para que Dr. Mário e seus convidados tenham foco exclusivo na pauta de saúde.
-                    </p>
-
-                    <div class="space-y-4">
-                        <div class="flex gap-4 items-start">
-                            <div class="p-2 bg-clinicNavy/5 text-clinicNavy rounded-lg mt-0.5"><i data-lucide="mic" class="w-4 h-4"></i></div>
-                            <div>
-                                <h4 class="font-display font-bold text-xs text-slate-800 uppercase tracking-wider">Isolamento Acústico Avançado</h4>
-                                <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Uso de microfones lapelas com bloqueadores físicos de ruído de vento, isolando integralmente as vozes.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-4 items-start">
-                            <div class="p-2 bg-clinicNavy/5 text-clinicNavy rounded-lg mt-0.5"><i data-lucide="sun" class="w-4 h-4"></i></div>
-                            <div>
-                                <h4 class="font-display font-bold text-xs text-slate-800 uppercase tracking-wider">Equipamentos de Luzes Profissionais</h4>
-                                <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Contamos com um setup de iluminação premium profissional que molda e suaviza os rostos mesmo em ambientes de contraste solar instável ou interiores frios.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-6 p-8 bg-slate-50 rounded-2xl border border-slate-100 space-y-6 reveal" id="cronograma">
-                    <span class="text-clinicNavy font-bold text-[10px] tracking-widest block uppercase">Cronograma de Atividades (Ciclo Mensal)</span>
-                    
-                    <div class="space-y-4 relative before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-slate-200">
-                        <div class="flex items-start space-x-4 relative">
-                            <div class="w-7 h-7 rounded-full bg-clinicNavy text-white font-display font-bold text-[10px] flex items-center justify-center shrink-0 z-10">01</div>
-                            <div>
-                                <h5 class="font-semibold text-xs text-slate-800 uppercase tracking-wider">Pauta & Manual (Dias 1-7)</h5>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Definição do médico, estruturação do roteiro didático e orientação prévia de figurino.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4 relative">
-                            <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-500 font-semibold text-[10px] flex items-center justify-center shrink-0 z-10">02</div>
-                            <div>
-                                <h5 class="font-semibold text-xs text-slate-600 uppercase tracking-wider">Visita Técnica (Dias 8-12)</h5>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Análise preventiva de som ambiente, posicionamento do sol e rotas de acesso.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4 relative">
-                            <div class="w-7 h-7 rounded-full bg-clinicTeal text-white font-display font-bold text-[10px] flex items-center justify-center shrink-0 z-10">03</div>
-                            <div>
-                                <h5 class="font-semibold text-xs text-slate-800 uppercase tracking-wider">Dia de Gravação (Dia 15)</h5>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Montagem antecipada (1h30), captação limpa de áudio/vídeo (1h) e desmontagem.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4 relative">
-                            <div class="w-7 h-7 rounded-full bg-slate-200 text-slate-500 font-semibold text-[10px] flex items-center justify-center shrink-0 z-10">04</div>
-                            <div>
-                                <h5 class="font-semibold text-xs text-slate-600 uppercase tracking-wider">Edição & Cortes (Dias 16-28)</h5>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Junção multicâmera, ajuste fino de ruídos, color grading e extração dos cortes.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4 relative">
-                            <div class="w-7 h-7 rounded-full bg-clinicNavy text-white font-display font-bold text-[10px] flex items-center justify-center shrink-0 z-10">05</div>
-                            <div>
-                                <h5 class="font-semibold text-xs text-slate-800 uppercase tracking-wider">Entrega & Publicação (Dia 30)</h5>
-                                <p class="text-[11px] text-slate-500 mt-0.5">Lançamento do vídeo no YouTube e entrega dos cortes para as redes sociais.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção: Investimento & Escopo Estratégico -->
-    <section id="investimento" class="py-24 bg-warmCreamBg text-[#111] border-t border-slate-200 reveal">
-        <div class="container mx-auto px-6 max-w-6xl">
-            
-            <!-- Cabeçalho da Seção -->
-            <div class="text-center mb-16">
-                <span class="text-[#004a7c] font-bold text-xs tracking-[0.4em] block mb-3 uppercase">Planos de Investimento</span>
-                <h2 class="font-header text-4xl md:text-5xl font-[800] tracking-tight text-[#111] uppercase mb-4">
-                    Estrutura Comercial
-                </h2>
-                <p class="text-gray-500 max-w-xl mx-auto font-inter text-xs md:text-sm">
-                    Escolha o formato ideal para as necessidades de expansão e comunicação do seu projeto de saúde.
-                </p>
-            </div>
-
-            <!-- Grid de 2 Planos (Otimizado para duas colunas centralizadas) -->
-            <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto mb-16">
-                
-                <!-- CARD 1: Video Avulso -->
-                <div class="bg-white border border-slate-200/80 p-8 md:p-10 rounded-xl shadow-sm flex flex-col justify-between transition-all hover:shadow-md">
-                    <div>
-                        <h3 class="font-header text-3xl font-[800] text-[#111] mb-2 tracking-tight">Vídeo Avulso</h3>
-                        <p class="text-gray-500 text-sm font-inter mb-6">
-                            Para demandas pontuais e produção avulsa sob demanda.
-                        </p>
-                        
-                        <div class="border-t border-slate-100 pt-6 mb-6">
-                            <span class="text-[10px] text-gray-400 font-bold uppercase tracking-widest block mb-1">Preço por Execução:</span>
-                            <div class="text-4xl font-heavy text-[#111]">
-                                R$ 6.000 <span class="text-xs font-normal text-gray-400">/ episódio</span>
-                            </div>
-                            <div class="mt-4 pt-4 border-t border-dashed border-slate-200">
-                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest block mb-1">Ou no contrato de 6 episódios:</span>
-                                <div class="text-lg font-bold text-[#004a7c]">
-                                    R$ 30.000 <span class="text-xs font-normal text-slate-500">total em pagamentos mensais</span>
-                                </div>
-                                <p class="text-[11px] text-slate-400 font-inter mt-1">Garante a consistência mensal em parcelas recorrentes.</p>
-                            </div>
-                        </div>
-
-                        <!-- O Que Está Incluso -->
-                        <div class="border-t border-slate-100 pt-6">
-                            <span class="text-[10px] text-slate-400 font-bold tracking-wider uppercase block mb-4">O que está incluso:</span>
-                            <ul class="space-y-3.5">
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-600 font-inter">Briefing estratégico de pauta</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-600 font-inter">Captação local itinerante (1x ao mês)</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-600 font-inter">Equipamentos de luzes profissionais</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-600 font-inter">Edição master (45 a 60 min no YouTube)</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-600 font-inter">3 a 4 cortes verticais (Reels/Shorts)</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Botão Ghost inferior -->
-                    <div class="mt-8 pt-6 border-t border-slate-100">
-                        <a href="https://wa.me/5573991419330?text=Olá%20Cainan!%20Gostaria%20de%20fechar%20o%20projeto%20do%20Podcast%20no%20formato%20Video%20Avulso%20(Episódio%20Avulso)." 
-                           target="_blank" 
-                           class="block text-center border border-slate-300 text-slate-700 font-heavy text-[11px] uppercase tracking-widest py-4 rounded-lg hover:border-[#111] hover:text-[#111] transition-all">
-                            Quero este plano
-                        </a>
-                    </div>
-                </div>
-
-                <!-- CARD 2: Pacote Completo -->
-                <div class="bg-[#F9F7F2] border-2 border-terracotta p-8 md:p-10 rounded-xl shadow-md flex flex-col justify-between relative overflow-hidden transform lg:-translate-y-2">
-                    <!-- Badge superior -->
-                    <div class="absolute top-0 right-0 bg-terracotta text-white text-[9px] font-heavy tracking-widest uppercase px-5 py-2 rounded-bl-lg">
-                        Mais Vantajoso (15% OFF)
-                    </div>
-                    
-                    <div>
-                        <h3 class="font-header text-3xl font-[800] text-[#111] mb-2 tracking-tight">Pacote Completo</h3>
-                        <p class="text-slate-500 text-sm font-inter mb-6">
-                            Máxima economia e planejamento total para a temporada completa de 6 meses.
-                        </p>
-                        
-                        <div class="border-t border-slate-200/60 pt-6 mb-6">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-[10px] text-[#004a7c] font-bold uppercase tracking-widest">Valor por vídeo (Economia Real):</span>
-                                <span class="bg-emerald-50 text-emerald-700 text-[9px] font-bold px-2 py-0.5 rounded border border-emerald-200">15% OFF</span>
-                            </div>
-                            <!-- O número 4250 está no mesmo tamanho (text-4xl) de 6.000 do card anterior -->
-                            <div class="text-4xl font-heavy text-[#111]">
-                                R$ 4.250 <span class="text-xs font-normal text-gray-400">/ por vídeo</span>
-                            </div>
-                            
-                            <div class="mt-4 pt-4 border-t border-dashed border-slate-200">
-                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest block mb-1">Valor Total à Vista:</span>
-                                <!-- O número 25500 possui exatamente o mesmo tamanho (text-lg font-bold) do valor 30000 do card anterior -->
-                                <div class="text-lg font-bold text-emerald-700">
-                                    R$ 25.500 <span class="text-xs font-normal text-slate-500">total pago em cota única</span>
-                                </div>
-                                <p class="text-[11px] text-slate-400 font-inter mt-1">Garante um desconto robusto no investimento integral do projeto.</p>
-                            </div>
-                        </div>
-
-                        <!-- O Que Está Incluso -->
-                        <div class="border-t border-slate-200/60 pt-6">
-                            <span class="text-[10px] text-[#004a7c] font-bold tracking-wider uppercase block mb-4">O que está incluso:</span>
-                            <ul class="space-y-3.5">
-                                <!-- Requisitos do Usuário em Destaque -->
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-700 font-inter font-semibold">6 Podcasts para YouTube de até 40 minutos</span>
-                                </li>
-                                <!-- Item Adicionado Conforme Solicitado -->
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-700 font-inter font-semibold">24 vídeos verticais (Reels/Shorts)</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-700 font-inter">Assessoria especializada na estruturação de pautas de saúde pública</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-700 font-inter">Produção itinerante em Porto Seguro, Trancoso, Eunápolis e Cabrália</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-700 font-inter">Luzes premium, captação multicâmera profissional e som de estúdio</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-700 font-inter">Color grading cinematográfico dedicado aos tons regionais</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <svg class="w-4 h-4 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                    <span class="text-xs text-slate-700 font-inter">Criação de capas profissionais (Thumbnails) para os episódios no YouTube</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Botão Terracotta inferior -->
-                    <div class="mt-8 pt-6 border-t border-slate-200/60">
-                        <a href="https://wa.me/5573991419330?text=Olá%20Cainan!%20Gostaria%20de%20fechar%20o%20projeto%20do%20Podcast%20no%20formato%20Pacote%20Completo." 
-                           target="_blank" 
-                           class="block text-center bg-terracotta hover:bg-[#B54D33] text-white font-heavy text-[11px] uppercase tracking-widest py-4 rounded-lg transition-all shadow-sm">
-                            Quero o Pacote Completo
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Rodapé de Garantias Adicionais -->
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-slate-300/60 text-center md:text-left">
-                <div class="space-y-1">
-                    <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Prazos de Entrega</h5>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Vídeo master e cortes em até 15 dias após o término de cada gravação.</p>
-                </div>
-                <div class="space-y-1">
-                    <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Aprovações Rápidas</h5>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Canal exclusivo via WhatsApp para ajustes e aprovação dinâmica de roteiros.</p>
-                </div>
-                <div class="space-y-1">
-                    <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Suporte de Produção</h5>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">Logística e planejamento por conta da equipe especializada da Daime Filmes.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer Elegante -->
-    <footer class="bg-slate-900 text-white py-12 px-6 md:px-12 border-t border-slate-800">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex flex-col items-center md:items-start space-y-2">
-                <span class="font-heavy text-md tracking-tighter">DAIME <span class="text-clinicTeal">FILMES</span></span>
-                <p class="text-slate-400 text-xs font-light">Transformando ideias em imagens com profundidade e beleza.</p>
-            </div>
-            
-            <div class="text-center md:text-right space-y-2">
-                <p class="text-xs text-slate-400">Dúvidas sobre o escopo ou parcelamento?</p>
-                <div class="flex flex-col md:flex-row gap-4 items-center justify-center md:justify-end">
-                    <a href="https://wa.me/5573991419330" target="_blank" class="text-xs text-clinicTeal font-bold flex items-center gap-1.5 hover:underline">
-                        <i data-lucide="phone" class="w-3.5 h-3.5"></i> Falar com Cainan (73) 99141-9330
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-5xl mx-auto mt-12 pt-6 border-t border-slate-800 text-center">
-            <p class="text-[10px] text-slate-500">&copy; 2026 Daime Filmes. Todos os direitos reservados. Proposta válida por 30 dias.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts Funcionais -->
-    <script>
-        // Dados do fluxo do Roteiro Interativo
-        const timelineData = [
-            {
-                tag: "Abertura",
-                time: "0 a 3 min",
-                title: "Introdução Cinematográfica",
-                desc: "Imagens de apoio da locação do dia (o amanhecer em Trancoso ou o maquinário avançado do laboratório). O Mário apresenta o tema de forma impactante, contextualizando os dados clínicos da nossa região antes de chamar o especialista.",
-                speaker: "Foco: Mário",
-                visual: "Visual: Drone / Imagens de Apoio"
-            },
-            {
-                tag: "Contexto",
-                time: "3 a 15 min",
-                title: "Contexto Regional",
-                desc: "Apresentação do convidado e discussão sobre a realidade de saúde local das cidades atendidas (Porto Seguro, Trancoso, Eunápolis ou Cabrália). Abordagem de dados epidemiológicos regionais de forma simples e humana.",
-                speaker: "Foco: Mário & Convidado",
-                visual: "Visual: Câmera Dupla / Close-ups"
-            },
-            {
-                tag: "Clínico",
-                time: "15 a 45 min",
-                title: "O Miolo Clínico",
-                desc: "O núcleo científico e explicativo do episódio. Dr. Mário e o convidado explicam diagnósticos, prevenções e tratamentos práticos de forma leve e didática, desmistificando mitos da medicina tradicional.",
-                speaker: "Foco: Convidado (Explicações)",
-                visual: "Visual: Gráficos sobrepostos / Lentes Prime"
-            },
-            {
-                tag: "Comunidade",
-                time: "45 a 55 min",
-                title: "Interação da Comunidade",
-                desc: "Respostas diretas a dúvidas enviadas por pacientes das redes sociais e moradores locais, gerando identificação extrema com a audiência local do Extremo Sul da Bahia.",
-                speaker: "Foco: Mário (Lendo perguntas)",
-                visual: "Visual: GC com pergunta na tela"
-            },
-            {
-                tag: "Encerramento",
-                time: "55 a 60 min",
-                title: "Encerramento Prático",
-                desc: "Resumo com 3 conselhos preventivos que o espectador pode aplicar no mesmo dia. Mensagem de encorajamento final e indicações sobre onde encontrar os serviços de saúde explicados.",
-                speaker: "Foco: Mário & Convidado",
-                visual: "Visual: Transição suave de luz / Créditos"
+</footer>
+<script>
+        // Micro-interactions for scrolling
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/90', 'tropical-blur');
+            } else {
+                header.classList.remove('bg-white/90', 'tropical-blur');
             }
-        ];
+        });
 
-        // Função de alteração do Roteiro Interativo
-        function selectTimeline(index) {
-            for (let i = 0; i < 5; i++) {
-                const btn = document.getElementById(`t-btn-${i}`);
-                if (btn) {
-                    if (i === index) {
-                        btn.className = "w-full text-left p-4 rounded-xl border border-clinicNavy/25 bg-white shadow-sm transition-all flex items-center justify-between group";
-                        btn.querySelector('span:first-child').className = "font-display font-bold text-clinicNavy text-xs";
-                        btn.querySelector('span:nth-child(2)').className = "font-semibold text-xs text-slate-800";
-                    } else {
-                        btn.className = "w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-all flex items-center justify-between group";
-                        btn.querySelector('span:first-child').className = "font-display font-bold text-slate-400 text-xs group-hover:text-clinicNavy";
-                        btn.querySelector('span:nth-child(2)').className = "font-medium text-xs text-slate-600 group-hover:text-slate-800";
-                    }
-                }
-            }
-
-            const data = timelineData[index];
-            if (data) {
-                document.getElementById('t-tag').innerText = data.tag;
-                document.getElementById('t-time').innerHTML = `<i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-clinicTeal"></i> ${data.time}`;
-                document.getElementById('t-title').innerText = data.title;
-                document.getElementById('t-desc').innerText = data.desc;
-                document.getElementById('t-speaker').innerText = data.speaker;
-                document.getElementById('t-visual').innerText = data.visual;
-            }
-            
-            // Re-renderização dos ícones do Lucide correspondentes à caixa de diálogo alterada
-            lucide.createIcons();
-        }
-
-        // Animação de Entrada suave no scroll
-        document.addEventListener("DOMContentLoaded", function() {
-            lucide.createIcons();
-            
-            const reveals = document.querySelectorAll(".reveal");
-            const revealOnScroll = () => {
-                const windowHeight = window.innerHeight;
-                reveals.forEach(el => {
-                    const elementTop = el.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    if (elementTop < windowHeight - elementVisible) {
-                        el.classList.add("active");
-                    }
-                });
-            };
-            
-            window.addEventListener("scroll", revealOnScroll);
-            revealOnScroll(); // disparo inicial
+        // Simple button active state visual feedback
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                el.style.transform = 'scale(0.95)';
+            });
+            el.addEventListener('touchend', () => {
+                el.style.transform = 'scale(1)';
+            });
         });
     </script>
-</body>
-</html>
+
+
+</body></html>
