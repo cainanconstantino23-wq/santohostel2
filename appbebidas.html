@@ -15,7 +15,7 @@
     </div>
 
     <div id="selection-screen" class="w-full max-w-sm mx-auto grid grid-cols-1 gap-5 my-auto">
-        <button onclick="comprar('Cerveja')" class="group relative bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold p-6 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-amber-400/30">
+        <button onclick="comprar('Cerveja', 8.00)" class="group relative bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold p-6 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-amber-400/30">
             <div class="flex items-center space-x-4">
                 <span class="text-4xl">🍺</span>
                 <div class="text-left">
@@ -26,7 +26,7 @@
             <span class="bg-slate-950/10 text-slate-950 font-black py-2.5 px-4 rounded-xl text-lg">R$ 8,00</span>
         </button>
 
-        <button onclick="comprar('Refrigerante')" class="group relative bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-slate-950 font-bold p-6 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-sky-400/30">
+        <button onclick="comprar('Refrigerante', 6.00)" class="group relative bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-slate-950 font-bold p-6 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-sky-400/30">
             <div class="flex items-center space-x-4">
                 <span class="text-4xl">🥤</span>
                 <div class="text-left">
@@ -40,7 +40,7 @@
 
     <div id="loading-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center justify-center my-auto py-12">
         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mb-4"></div>
-        <p class="text-slate-300 font-medium">A abrir o Mercado Pago...</p>
+        <p class="text-slate-300 font-medium">A preparar pagamento...</p>
     </div>
 
     <div class="text-center text-xs text-slate-600 mt-6">
@@ -48,10 +48,10 @@
     </div>
 
     <script>
-        // Insira aqui o Production URL exato do seu webhook do n8n
-        const N8N_WEBHOOK_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/2821cf02-be8d-46cc-8313-aa8a9af114d8';
+        // Substitua abaixo pela URL do webhook do SEU n8n de produção
+        const N8N_WEBHOOK_URL = 'COLE_AQUI_A_URL_DE_PRODUCAO_DO_N8N';
 
-        async function comprar(produto) {
+        async function comprar(produto, valor) {
             document.getElementById('selection-screen').classList.add('hidden');
             document.getElementById('loading-screen').classList.remove('hidden');
 
@@ -59,31 +59,23 @@
                 const response = await fetch(N8N_WEBHOOK_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ produto: produto })
+                    body: JSON.stringify({ produto: produto, valor: valor })
                 });
                 
                 const data = await response.json();
-
-                // Verifica se o n8n retornou o init_point ou um array contendo o init_point
                 const redirectUrl = data.init_point || (Array.isArray(data) && data[0] && data[0].init_point);
 
                 if (redirectUrl) {
-                    // Redireciona o hóspede para a página de pagamento do Mercado Pago
                     window.location.href = redirectUrl;
                 } else {
-                    alert('Erro: O link de pagamento não foi retornado.');
-                    voltar();
+                    throw new Error('Link não retornado');
                 }
             } catch (error) {
                 console.error(error);
-                alert('Erro de conexão ao comunicar com o n8n.');
-                voltar();
+                alert('Erro ao comunicar com o n8n. Verifique se a URL do webhook está correta e se o fluxo está ativo.');
+                document.getElementById('loading-screen').classList.add('hidden');
+                document.getElementById('selection-screen').classList.remove('hidden');
             }
-        }
-
-        function voltar() {
-            document.getElementById('loading-screen').classList.add('hidden');
-            document.getElementById('selection-screen').classList.remove('hidden');
         }
     </script>
 </body>
