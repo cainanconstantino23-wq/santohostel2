@@ -3,87 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bebidas - Freezer Autoatendimento</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <title>Santo Hostel - Freezer Inteligente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-between p-6">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 select-none">
 
-    <div class="w-full max-w-md text-center mt-6">
-        <h1 class="text-3xl font-bold tracking-tight">Freezer Inteligente</h1>
-        <p class="text-slate-400 mt-2">Escolha o seu produto para liberar o pagamento via Pix.</p>
+    <!-- Cabeçalho -->
+    <div class="text-center mt-4">
+        <span class="bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/20">⚡ Autoatendimento</span>
+        <h1 class="text-2xl font-bold tracking-tight mt-3">Freezer Inteligente</h1>
+        <p class="text-slate-400 text-sm mt-1">Selecione o produto desejado para liberar o pagamento.</p>
     </div>
 
-    <!-- Seção de Escolha de Produtos -->
-    <div id="selection-screen" class="w-full max-w-md grid grid-cols-1 gap-4 my-auto">
-        <button onclick="comprar('cerveja')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-5 px-6 rounded-2xl text-xl shadow-lg transition transform active:scale-95 flex items-center justify-between">
-            <span>🍺 Cerveja Gelada</span>
-            <span class="bg-amber-400/50 py-1 px-3 rounded-xl text-lg">R$ 6,00</span>
+    <!-- Seção de Seleção de Produtos -->
+    <div id="selection-screen" class="w-full max-w-sm mx-auto grid grid-cols-1 gap-4 my-auto">
+        <button onclick="comprar('Cerveja')" class="group relative bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold p-5 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-amber-400/30">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">🍺</span>
+                <div class="text-left">
+                    <div class="text-lg font-extrabold text-slate-950">Cerveja Gelada</div>
+                    <div class="text-xs text-slate-900/80 font-medium">Lata 350ml</div>
+                </div>
+            </div>
+            <span class="bg-slate-950/10 text-slate-950 font-black py-2 px-4 rounded-xl text-lg">R$ 8,00</span>
         </button>
 
-        <button onclick="comprar('refrigerante')" class="bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold py-5 px-6 rounded-2xl text-xl shadow-lg transition transform active:scale-95 flex items-center justify-between">
-            <span>🥤 Refrigerante</span>
-            <span class="bg-sky-400/50 py-1 px-3 rounded-xl text-lg">R$ 5,00</span>
+        <button onclick="comprar('Refrigerante')" class="group relative bg-gradient-to-r from-sky-500 to-sky-600 hover:bg-sky-600 hover:to-sky-700 text-slate-950 font-bold p-5 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-sky-400/30">
+            <div class="flex items-center space-x-3">
+                <span class="text-3xl">🥤</span>
+                <div class="text-left">
+                    <div class="text-lg font-extrabold text-slate-950">Refrigerante</div>
+                    <div class="text-xs text-slate-900/80 font-medium">Lata 350ml</div>
+                </div>
+            </div>
+            <span class="bg-slate-950/10 text-slate-950 font-black py-2 px-4 rounded-xl text-lg">R$ 6,00</span>
         </button>
+    </div>
+
+    <!-- Seção de Carregamento (Loading) -->
+    <div id="loading-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center justify-center my-auto py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mb-4"></div>
+        <p class="text-slate-300 font-medium">A gerar cobrança Pix...</p>
     </div>
 
     <!-- Seção do Pagamento Pix (Oculta inicialmente) -->
-    <div id="payment-screen" class="w-full max-w-md hidden flex flex-col items-center my-auto bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-xl">
-        <h2 class="text-xl font-semibold mb-2">Escaneie o QR Code Pix</h2>
-        <p class="text-slate-400 text-sm mb-4 text-center">O freezer abrirá automaticamente logo após a confirmação do pagamento.</p>
-        
-        <div id="qrcode-container" class="bg-white p-3 rounded-2xl mb-4">
-            <!-- QR Code Base64 inserido via JS -->
-            <img id="qr-img" src="" alt="QR Code Pix" class="w-48 h-48">
+    <div id="payment-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center my-auto bg-slate-900 p-6 rounded-3xl border border-slate-800 shadow-2xl">
+        <div class="flex items-center justify-between w-full mb-4">
+            <span id="product-title" class="text-sm font-semibold text-amber-400">Produto Selecionado</span>
+            <button onclick="voltar()" class="text-xs text-slate-400 hover:text-white underline">Trocar</button>
         </div>
 
-        <div class="w-full">
-            <p class="text-xs text-slate-400 mb-1">Ou copie o código Pix Copia e Cola:</p>
-            <input type="text" id="pix-copy" readonly class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-300 select-all mb-3" />
-            <button onclick="copiarPix()" class="w-full bg-emerald-600 hover:bg-emerald-500 font-semibold py-3 rounded-xl transition">Copiar Código Pix</button>
+        <div class="bg-white p-3 rounded-2xl mb-4 shadow-inner">
+            <img id="qr-img" src="" alt="QR Code Pix" class="w-44 h-44 object-contain">
         </div>
 
-        <button onclick="voltar()" class="mt-4 text-sm text-slate-400 hover:text-white underline">Escolher outro produto</button>
+        <div class="w-full mb-4">
+            <label class="block text-xs text-slate-400 mb-1">Pix Copia e Cola:</label>
+            <div class="flex space-x-2">
+                <input type="text" id="pix-copy" readonly class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-300 select-all" />
+                <button onclick="copiarPix()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 rounded-xl transition text-xs shrink-0">Copiar</button>
+            </div>
+        </div>
+
+        <div class="w-full bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3 text-center">
+            <p class="text-xs text-amber-300 font-medium">⏳ Aguardando pagamento...</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">A porta abrirá automaticamente assim que aprovado.</p>
+        </div>
     </div>
 
-    <div class="text-xs text-slate-500 mt-6">
-        Powered by Santo Hostel & Daime Filmes
+    <!-- Rodapé -->
+    <div class="text-center text-xs text-slate-600 mt-6">
+        Santo Hostel • Powered by Daime Filmes
     </div>
 
     <script>
-        const N8N_WEBHOOK_URL = 'SUA_URL_DO_WEBHOOK_N8N_GERAR_PAGAMENTO';
+        // Substitua pelo Production URL unificado do seu webhook do n8n
+        const N8N_WEBHOOK_URL = 'SUA_URL_DO_WEBHOOK_N8N_AQUI';
 
         async function comprar(produto) {
+            document.getElementById('selection-screen').classList.add('hidden');
+            document.getElementById('loading-screen').classList.remove('hidden');
+
             try {
-                // Mostra feedback visual ou loading se desejar
                 const response = await fetch(N8N_WEBHOOK_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ produto: produto })
                 });
+                
                 const data = await response.json();
 
                 if (data.qr_code_base64) {
                     document.getElementById('qr-img').src = `data:image/png;base64,${data.qr_code_base64}`;
                     document.getElementById('pix-copy').value = data.qr_code;
-                    
-                    document.getElementById('selection-screen').classList.add('hidden');
+                    document.getElementById('product-title').innerText = `Comprar: ${produto}`;
+
+                    document.getElementById('loading-screen').classList.add('hidden');
                     document.getElementById('payment-screen').classList.remove('hidden');
+                } else {
+                    throw new Error('Dados inválidos');
                 }
             } catch (error) {
                 alert('Erro ao gerar pagamento. Tente novamente.');
                 console.error(error);
+                voltar();
             }
         }
 
         function copiarPix() {
             const copyText = document.getElementById('pix-copy');
             copyText.select();
+            copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value);
-            alert('Código Pix copiado com sucesso!');
+            alert('Código Pix copiado! Cole no aplicativo do seu banco.');
         }
 
         function voltar() {
             document.getElementById('payment-screen').classList.add('hidden');
+            document.getElementById('loading-screen').classList.add('hidden');
             document.getElementById('selection-screen').classList.remove('hidden');
         }
     </script>
