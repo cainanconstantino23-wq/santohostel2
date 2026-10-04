@@ -66,7 +66,12 @@
                 const data = await response.json();
                 console.log("RESPOSTA COMPLETA DO N8N:", data);
                 
-                let redirectUrl = data.init_point || data.json?.init_point || (data[0] && (data[0].init_point || data[0].json?.init_point));
+                let redirectUrl = null;
+                const item = Array.isArray(data) ? data[0] : data;
+                
+                if (item) {
+                    redirectUrl = item.init_point || item.json?.init_point || (item.body && item.body.init_point);
+                }
 
                 if (redirectUrl) {
                     window.location.href = redirectUrl;
