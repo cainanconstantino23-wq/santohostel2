@@ -64,16 +64,9 @@
                 });
                 
                 const data = await response.json();
+                console.log("RESPOSTA COMPLETA DO N8N:", data);
                 
-                // Extrai o link de redirecionamento de forma robusta em qualquer estrutura do n8n
-                let redirectUrl = null;
-                if (data.init_point) {
-                    redirectUrl = data.init_point;
-                } else if (Array.isArray(data) && data[0]) {
-                    redirectUrl = data[0].init_point || data[0].json?.init_point;
-                } else if (data.json && data.json.init_point) {
-                    redirectUrl = data.json.init_point;
-                }
+                let redirectUrl = data.init_point || data.json?.init_point || (data[0] && (data[0].init_point || data[0].json?.init_point));
 
                 if (redirectUrl) {
                     window.location.href = redirectUrl;
