@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebidas - Freezer Autoatendimento</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+</head>
+<body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-between p-6">
+
+    <div class="w-full max-w-md text-center mt-6">
+        <h1 class="text-3xl font-bold tracking-tight">Freezer Inteligente</h1>
+        <p class="text-slate-400 mt-2">Escolha o seu produto para liberar o pagamento via Pix.</p>
+    </div>
+
+    <!-- Seção de Escolha de Produtos -->
+    <div id="selection-screen" class="w-full max-w-md grid grid-cols-1 gap-4 my-auto">
+        <button onclick="comprar('cerveja')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-5 px-6 rounded-2xl text-xl shadow-lg transition transform active:scale-95 flex items-center justify-between">
+            <span>🍺 Cerveja Gelada</span>
+            <span class="bg-amber-400/50 py-1 px-3 rounded-xl text-lg">R$ 6,00</span>
+        </button>
+
+        <button onclick="comprar('refrigerante')" class="bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold py-5 px-6 rounded-2xl text-xl shadow-lg transition transform active:scale-95 flex items-center justify-between">
+            <span>🥤 Refrigerante</span>
+            <span class="bg-sky-400/50 py-1 px-3 rounded-xl text-lg">R$ 5,00</span>
+        </button>
+    </div>
+
+    <!-- Seção do Pagamento Pix (Oculta inicialmente) -->
+    <div id="payment-screen" class="w-full max-w-md hidden flex flex-col items-center my-auto bg-slate-800 p-6 rounded-3xl border border-slate-700 shadow-xl">
+        <h2 class="text-xl font-semibold mb-2">Escaneie o QR Code Pix</h2>
+        <p class="text-slate-400 text-sm mb-4 text-center">O freezer abrirá automaticamente logo após a confirmação do pagamento.</p>
+        
+        <div id="qrcode-container" class="bg-white p-3 rounded-2xl mb-4">
+            <!-- QR Code Base64 inserido via JS -->
+            <img id="qr-img" src="" alt="QR Code Pix" class="w-48 h-48">
+        </div>
+
+        <div class="w-full">
+            <p class="text-xs text-slate-400 mb-1">Ou copie o código Pix Copia e Cola:</p>
+            <input type="text" id="pix-copy" readonly class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-300 select-all mb-3" />
+            <button onclick="copiarPix()" class="w-full bg-emerald-600 hover:bg-emerald-500 font-semibold py-3 rounded-xl transition">Copiar Código Pix</button>
+        </div>
+
+        <button onclick="voltar()" class="mt-4 text-sm text-slate-400 hover:text-white underline">Escolher outro produto</button>
+    </div>
+
+    <div class="text-xs text-slate-500 mt-6">
+        Powered by Santo Hostel & Daime Filmes
+    </div>
+
+    <script>
+        const N8N_WEBHOOK_URL = 'SUA_URL_DO_WEBHOOK_N8N_GERAR_PAGAMENTO';
+
+        async function comprar(produto) {
+            try {
+                // Mostra feedback visual ou loading se desejar
+                const response = await fetch(N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ produto: produto })
+                });
+                const data = await response.json();
+
+                if (data.qr_code_base64) {
+                    document.getElementById('qr-img').src = `data:image/png;base64,${data.qr_code_base64}`;
+                    document.getElementById('pix-copy').value = data.qr_code;
+                    
+                    document.getElementById('selection-screen').classList.add('hidden');
+                    document.getElementById('payment-screen').classList.remove('hidden');
+                }
+            } catch (error) {
+                alert('Erro ao gerar pagamento. Tente novamente.');
+                console.error(error);
+            }
+        }
+
+        function copiarPix() {
+            const copyText = document.getElementById('pix-copy');
+            copyText.select();
+            navigator.clipboard.writeText(copyText.value);
+            alert('Código Pix copiado com sucesso!');
+        }
+
+        function voltar() {
+            document.getElementById('payment-screen').classList.add('hidden');
+            document.getElementById('selection-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
