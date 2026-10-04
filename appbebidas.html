@@ -8,14 +8,12 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 select-none">
 
-    <!-- Cabeçalho -->
     <div class="text-center mt-6">
         <span class="bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/20">⚡ Autoatendimento</span>
         <h1 class="text-3xl font-bold tracking-tight mt-3">Freezer Inteligente</h1>
         <p class="text-slate-400 text-sm mt-1">Toque no produto desejado para abrir o pagamento.</p>
     </div>
 
-    <!-- Seção de Seleção de Produtos -->
     <div id="selection-screen" class="w-full max-w-sm mx-auto grid grid-cols-1 gap-5 my-auto">
         <button onclick="comprar('Cerveja')" class="group relative bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold p-6 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-amber-400/30">
             <div class="flex items-center space-x-4">
@@ -40,20 +38,18 @@
         </button>
     </div>
 
-    <!-- Seção de Carregamento (Loading) -->
     <div id="loading-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center justify-center my-auto py-12">
         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mb-4"></div>
-        <p class="text-slate-300 font-medium">A preparar o pagamento...</p>
+        <p class="text-slate-300 font-medium">A gerar link de pagamento...</p>
     </div>
 
-    <!-- Rodapé -->
     <div class="text-center text-xs text-slate-600 mt-6">
         Santo Hostel • Powered by Daime Filmes
     </div>
 
     <script>
         // Substitua pelo Production URL unificado do seu webhook do n8n
-        const N8N_WEBHOOK_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/2821cf02-be8d-46cc-8313-aa8a9af114d8';
+        const N8N_WEBHOOK_URL = 'SUA_URL_DO_WEBHOOK_N8N_AQUI';
 
         async function comprar(produto) {
             document.getElementById('selection-screen').classList.add('hidden');
@@ -69,15 +65,14 @@
                 const data = await response.json();
 
                 if (data.init_point) {
-                    // Redireciona o hóspede para o Checkout Pro do Mercado Pago
                     window.location.href = data.init_point;
                 } else {
-                    alert('Erro ao iniciar o pagamento. Tente novamente.');
+                    alert('Erro: O n8n não retornou o link de pagamento.');
                     voltar();
                 }
             } catch (error) {
                 console.error(error);
-                alert('Erro de conexão com o servidor.');
+                alert('Erro de conexão ao comunicar com o n8n. Verifique a URL do webhook.');
                 voltar();
             }
         }
