@@ -50,7 +50,6 @@
     </div>
 
     <script>
-        // Cole aqui o Production URL do seu webhook do n8n
         const N8N_WEBHOOK_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
 
         async function comprar(produto, valor) {
@@ -65,7 +64,16 @@
                 });
                 
                 const data = await response.json();
-                const redirectUrl = data.init_point || (Array.isArray(data) && data[0] && data[0].init_point);
+                
+                // Extrai o link de redirecionamento de forma robusta em qualquer estrutura do n8n
+                let redirectUrl = null;
+                if (data.init_point) {
+                    redirectUrl = data.init_point;
+                } else if (Array.isArray(data) && data[0]) {
+                    redirectUrl = data[0].init_point || data[0].json?.init_point;
+                } else if (data.json && data.json.init_point) {
+                    redirectUrl = data.json.init_point;
+                }
 
                 if (redirectUrl) {
                     window.location.href = redirectUrl;
