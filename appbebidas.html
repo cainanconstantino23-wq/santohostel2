@@ -16,7 +16,7 @@
             <p class="text-slate-400 text-sm mt-1">Toque na bebida desejada para pagar.</p>
         </div>
 
-        <!-- Lista de Bebidas e Testes -->
+        <!-- Lista de Bebidas Atualizada -->
         <div class="grid grid-cols-1 gap-3.5">
             <!-- Água sem gás -->
             <button onclick="comprar('Água sem gás', 5.00)" class="group relative bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-slate-950 font-bold p-3.5 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-teal-400/30">
@@ -69,10 +69,10 @@
             <!-- Heineken -->
             <button onclick="comprar('Heineken', 12.00)" class="group relative bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-slate-100 font-bold p-3.5 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-emerald-500/30">
                 <div class="flex items-center space-x-3">
-                    <span class="text-2xl">🍺</span>
+                    <span class="text-2xl"> Heineken</span>
                     <div class="text-left">
                         <div class="text-base font-extrabold text-slate-100">Heineken</div>
-                        <div class="text-xs text-slate-300 font-medium">Lata / Long Neck 330ml</div>
+                        <div class="text-xs text-slate-300 font-medium">Lata Long Neck / 330ml</div>
                     </div>
                 </div>
                 <span class="bg-slate-950/30 text-emerald-300 font-black py-1.5 px-3 rounded-xl text-sm">R$ 12,00</span>
@@ -81,7 +81,7 @@
             <!-- Stella Artois -->
             <button onclick="comprar('Stella Artois', 12.00)" class="group relative bg-gradient-to-r from-amber-200 to-amber-300 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold p-3.5 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-amber-300/30">
                 <div class="flex items-center space-x-3">
-                    <span class="text-2xl">🍻</span>
+                    <span class="text-2xl">🍺</span>
                     <div class="text-left">
                         <div class="text-base font-extrabold text-slate-950">Stella Artois</div>
                         <div class="text-xs text-slate-950/80 font-medium">Long Neck 330ml</div>
@@ -93,7 +93,7 @@
             <!-- Amstel -->
             <button onclick="comprar('Amstel', 12.00)" class="group relative bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-slate-100 font-bold p-3.5 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-red-500/30">
                 <div class="flex items-center space-x-3">
-                    <span class="text-2xl">🍺</span>
+                    <span class="text-2xl">🍻</span>
                     <div class="text-left">
                         <div class="text-base font-extrabold text-slate-100">Amstel</div>
                         <div class="text-xs text-slate-300 font-medium">Lata 350ml</div>
@@ -101,14 +101,81 @@
                 </div>
                 <span class="bg-slate-950/30 text-red-200 font-black py-1.5 px-3 rounded-xl text-sm">R$ 12,00</span>
             </button>
+        </div>
+    </div>
 
-            <!-- Teste Melancia -->
-            <button onclick="comprar('Melancia', 1.00)" class="group relative bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-slate-950 font-bold p-3.5 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-pink-400/30">
-                <div class="flex items-center space-x-3">
-                    <span class="text-2xl">🍉</span>
-                    <div class="text-left">
-                        <div class="text-base font-extrabold text-slate-950">Teste Melancia</div>
-                        <div class="text-xs text-slate-950/80 font-medium">Item de Teste</div>
-                    </div>
-                </div>
-                <span class="bg-slate-950/10 text-slate-950 font-black py-1.5 px-3 rounded-xl text-sm
+    <!-- Tela de Carregamento (Gerando Pagamento) -->
+    <div id="loading-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center justify-center my-auto py-12">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mb-4"></div>
+        <p class="text-slate-300 font-medium">A preparar pagamento...</p>
+    </div>
+
+    <!-- Tela de Sucesso (Porta a Abrir) -->
+    <div id="success-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center justify-center my-auto py-12 text-center">
+        <span class="text-6xl mb-4">🔓</span>
+        <h2 class="text-2xl font-bold text-emerald-400">Pagamento Aprovado!</h2>
+        <p class="text-slate-300 text-sm mt-2">A abrir a porta do freezer... Pode retirar o seu produto!</p>
+    </div>
+
+    <div class="text-center text-xs text-slate-600 mt-6">
+        Santo Hostel • Autoatendimento
+    </div>
+
+    <script>
+        const N8N_CHECKOUT_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
+        const N8N_SUCCESS_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/pagamentos';
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const paymentId = urlParams.get('payment_id') || urlParams.get('collection_id') || urlParams.get('id');
+            const status = urlParams.get('status') || urlParams.get('collection_status') || urlParams.get('payment_status');
+
+            if (paymentId) {
+                document.getElementById('selection-screen').classList.add('hidden');
+                document.getElementById('success-screen').classList.remove('hidden');
+
+                try {
+                    await fetch(N8N_SUCCESS_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            data: { id: paymentId },
+                            status: status || 'approved',
+                            action: 'payment.created'
+                        })
+                    });
+                } catch (error) {
+                    console.error("Erro ao acionar fechadura:", error);
+                }
+            }
+        });
+
+        async function comprar(produto, valor) {
+            document.getElementById('selection-screen').classList.add('hidden');
+            document.getElementById('loading-screen').classList.remove('hidden');
+
+            try {
+                const response = await fetch(N8N_CHECKOUT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ produto: produto, valor: valor })
+                });
+                
+                const data = await response.json();
+                let redirectUrl = data.init_point || data.json?.init_point || data[0]?.init_point || data[0]?.json?.init_point;
+
+                if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                } else {
+                    throw new Error('Link não encontrado');
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Erro ao gerar pagamento. Tente novamente.');
+                document.getElementById('loading-screen').classList.add('hidden');
+                document.getElementById('selection-screen').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
