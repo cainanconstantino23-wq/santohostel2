@@ -64,34 +64,17 @@
                 });
                 
                 const data = await response.json();
-                console.log("RESPOSTA RECEBIDA DO N8N:", data);
+                console.log("DADOS RETORNADOS:", data);
                 
-                let redirectUrl = null;
+                let redirectUrl = data.init_point || data.json?.init_point || data[0]?.init_point || data[0]?.json?.init_point;
 
-                // Varredura abrangente para encontrar o init_point em qualquer formato que o n8n entregue
-                if (typeof data === 'string' && data.startsWith('http')) {
-                    redirectUrl = data;
-                } else if (data.init_point) {
-                    redirectUrl = data.init_point;
-                } else if (data.json && data.json.init_point) {
-                    redirectUrl = data.json.init_point;
-                } else if (Array.isArray(data)) {
-                    for (const item of data) {
-                        if (item.init_point) { redirectUrl = item.init_point; break; }
-                        if (item.json?.init_point) { redirectUrl = item.json.init_point; break; }
-                        if (item.body?.init_point) { redirectUrl = item.body.init_point; break; }
-                    }
-                } else if (data.body && data.body.init_point) {
-                    redirectUrl = data.body.init_point;
-                }
-
-                if (redirectUrl && redirectUrl.startsWith('http')) {
+                if (redirectUrl) {
                     window.location.href = redirectUrl;
                 } else {
-                    throw new Error('Link init_point não localizado na resposta do webhook.');
+                    throw new Error('Link não encontrado');
                 }
             } catch (error) {
-                console.error("Erro detalhado:", error);
+                console.error(error);
                 alert('Erro ao gerar pagamento. Tente novamente.');
                 document.getElementById('loading-screen').classList.add('hidden');
                 document.getElementById('selection-screen').classList.remove('hidden');
