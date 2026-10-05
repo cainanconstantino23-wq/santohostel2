@@ -174,11 +174,8 @@
         });
 
         function voltarAoCatalogo() {
-            // Limpa a URL e restaura a tela inicial
-            window.history.replaceState({}, document.title, window.location.pathname);
-            document.getElementById('success-screen').classList.add('hidden');
-            document.getElementById('loading-screen').classList.add('hidden');
-            document.getElementById('selection-screen').classList.remove('hidden');
+            // Limpa a URL completamente e recarrega a página limpa com as opções de bebidas
+            window.location.href = window.location.pathname;
         }
 
         async function comprar(produto, valor) {
