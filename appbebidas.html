@@ -86,19 +86,19 @@
     </div>
 
     <script>
-        // URL do primeiro workflow (responsável por gerar o link de checkout do Mercado Pago)
+        // URLs dos workflows no n8n
         const N8N_CHECKOUT_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
-
-        // URL do segundo workflow (responsável por receber o aviso de pagamento aprovado e abrir a fechadura)
         const N8N_SUCCESS_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/pagamentos';
 
-        // Assim que a página carrega, verifica se o usuário voltou do Mercado Pago com pagamento aprovado
+        // Assim que a página carrega, verifica se o usuário voltou do Mercado Pago
         window.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const paymentId = urlParams.get('payment_id') || urlParams.get('collection_id');
-            const status = urlParams.get('status') || urlParams.get('collection_status');
+            
+            // Captura qualquer formato de ID e status enviado pelo Mercado Pago
+            const paymentId = urlParams.get('payment_id') || urlParams.get('collection_id') || urlParams.get('id');
+            const status = urlParams.get('status') || urlParams.get('collection_status') || urlParams.get('payment_status');
 
-            if (paymentId && (status === 'approved' || status === 'success')) {
+            if (paymentId) {
                 document.getElementById('selection-screen').classList.add('hidden');
                 document.getElementById('success-screen').classList.remove('hidden');
 
@@ -108,6 +108,7 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ 
                             data: { id: paymentId },
+                            status: status || 'approved',
                             action: 'payment.created'
                         })
                     });
