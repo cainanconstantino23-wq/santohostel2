@@ -1,119 +1,236 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Santo Hostel - Freezer Inteligente</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
+
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between p-6 select-none">
 
+
+
     <!-- Tela de Seleção -->
+
     <div id="selection-screen" class="w-full max-w-sm mx-auto grid grid-cols-1 gap-5 my-auto">
+
         <div class="text-center mb-4">
+
             <span class="bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/20">⚡ Autoatendimento</span>
+
             <h1 class="text-3xl font-bold tracking-tight mt-3">Freezer Inteligente</h1>
+
             <p class="text-slate-400 text-sm mt-1">Toque no produto desejado para pagar e abrir.</p>
+
         </div>
 
+
+
         <!-- Cerveja: R$ 10,00 -->
+
         <button onclick="comprar('Cerveja', 10.00)" class="group relative bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold p-6 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-amber-400/30">
+
             <div class="flex items-center space-x-4">
+
                 <span class="text-4xl">🍺</span>
+
                 <div class="text-left">
+
                     <div class="text-xl font-extrabold text-slate-950">Cerveja Gelada</div>
+
                     <div class="text-xs text-slate-950/80 font-medium">Lata 350ml</div>
+
                 </div>
+
             </div>
+
             <span class="bg-slate-950/10 text-slate-950 font-black py-2.5 px-4 rounded-xl text-lg">R$ 10,00</span>
+
         </button>
+
+
 
         <!-- Refrigerante: R$ 5,00 -->
+
         <button onclick="comprar('Refrigerante', 5.00)" class="group relative bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-slate-950 font-bold p-6 rounded-2xl shadow-xl transition-all duration-200 transform active:scale-95 flex items-center justify-between border border-sky-400/30">
+
             <div class="flex items-center space-x-4">
+
                 <span class="text-4xl">🥤</span>
+
                 <div class="text-left">
+
                     <div class="text-xl font-extrabold text-slate-950">Refrigerante</div>
+
                     <div class="text-xs text-slate-950/80 font-medium">Lata 350ml</div>
+
                 </div>
+
             </div>
+
             <span class="bg-slate-950/10 text-slate-950 font-black py-2.5 px-4 rounded-xl text-lg">R$ 5,00</span>
+
         </button>
+
     </div>
+
+
 
     <!-- Tela de Carregamento (Gerando Pagamento) -->
+
     <div id="loading-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center justify-center my-auto py-12">
+
         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mb-4"></div>
+
         <p class="text-slate-300 font-medium">A preparar pagamento...</p>
+
     </div>
+
+
 
     <!-- Tela de Sucesso (Porta a Abrir) -->
+
     <div id="success-screen" class="w-full max-w-sm mx-auto hidden flex flex-col items-center justify-center my-auto py-12 text-center">
+
         <span class="text-6xl mb-4">🔓</span>
+
         <h2 class="text-2xl font-bold text-emerald-400">Pagamento Aprovado!</h2>
+
         <p class="text-slate-300 text-sm mt-2">A abrir a porta do freezer... Pode retirar o seu produto!</p>
+
     </div>
+
+
 
     <div class="text-center text-xs text-slate-600 mt-6">
+
         Santo Hostel • Autoatendimento
+
     </div>
 
+
+
     <script>
-        // URL unificada do webhook apontando para Pagamentos
-        const N8N_WEBHOOK_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/Pagamentos';
+
+        const N8N_WEBHOOK_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
+
+
 
         // Assim que a página carrega, verifica se o usuário voltou do Mercado Pago com pagamento aprovado
+
         window.addEventListener('DOMContentLoaded', async () => {
+
             const urlParams = new URLSearchParams(window.location.search);
+
             const paymentId = urlParams.get('payment_id');
+
             const status = urlParams.get('status');
 
+
+
             if (paymentId && status === 'approved') {
+
                 document.getElementById('selection-screen').classList.add('hidden');
+
                 document.getElementById('success-screen').classList.remove('hidden');
 
+
+
                 try {
+
                     // Envia o ID do pagamento aprovado diretamente para o n8n abrir a fechadura
+
                     await fetch(N8N_WEBHOOK_URL, {
+
                         method: 'POST',
+
                         headers: { 'Content-Type': 'application/json' },
+
                         body: JSON.stringify({ 
+
                             data: { id: paymentId },
+
                             action: 'payment.created'
+
                         })
+
                     });
+
                 } catch (error) {
+
                     console.error("Erro ao acionar fechadura:", error);
+
                 }
+
             }
+
         });
 
+
+
         async function comprar(produto, valor) {
+
             document.getElementById('selection-screen').classList.add('hidden');
+
             document.getElementById('loading-screen').classList.remove('hidden');
 
+
+
             try {
+
                 const response = await fetch(N8N_WEBHOOK_URL, {
+
                     method: 'POST',
+
                     headers: { 'Content-Type': 'application/json' },
+
                     body: JSON.stringify({ produto: produto, valor: valor })
+
                 });
+
                 
+
                 const data = await response.json();
+
                 let redirectUrl = data.init_point || data.json?.init_point || data[0]?.init_point || data[0]?.json?.init_point;
 
+
+
                 if (redirectUrl) {
+
                     window.location.href = redirectUrl;
+
                 } else {
+
                     throw new Error('Link não encontrado');
+
                 }
+
             } catch (error) {
+
                 console.error(error);
+
                 alert('Erro ao gerar pagamento. Tente novamente.');
+
                 document.getElementById('loading-screen').classList.add('hidden');
+
                 document.getElementById('selection-screen').classList.remove('hidden');
+
             }
+
         }
+
     </script>
+
 </body>
+
 </html>
+
