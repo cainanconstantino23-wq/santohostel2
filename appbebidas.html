@@ -50,6 +50,7 @@
     </div>
 
     <script>
+        // Substitua abaixo pelo Production URL do seu webhook do n8n
         const N8N_WEBHOOK_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
 
         async function comprar(produto, valor) {
@@ -64,11 +65,11 @@
                 });
                 
                 const data = await response.json();
-                console.log("RESPOSTA DO N8N:", data);
+                console.log("Resposta recebida do n8n:", data);
                 
-                // Extração extremamente flexível de qualquer formato retornado
+                // Extração blindada para capturar o init_point independentemente de como o n8n o envie
                 let redirectUrl = null;
-                if (typeof data === 'string') {
+                if (typeof data === 'string' && data.startsWith('http')) {
                     redirectUrl = data;
                 } else if (data.init_point) {
                     redirectUrl = data.init_point;
@@ -80,14 +81,14 @@
                     redirectUrl = data.body.init_point;
                 }
 
-                if (redirectUrl && redirectUrl.startsWith('http')) {
+                if (redirectUrl) {
                     window.location.href = redirectUrl;
                 } else {
-                    throw new Error('Link de pagamento inválido ou não encontrado');
+                    throw new Error('Link de pagamento não encontrado na resposta.');
                 }
             } catch (error) {
-                console.error(error);
-                alert('Erro ao gerar pagamento. Tente novamente.');
+                console.error("Erro na compra:", error);
+                alert('Erro ao gerar pagamento. Verifique o console para mais detalhes.');
                 document.getElementById('loading-screen').classList.add('hidden');
                 document.getElementById('selection-screen').classList.remove('hidden');
             }
