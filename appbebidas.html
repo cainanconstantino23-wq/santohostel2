@@ -118,117 +118,66 @@
 
 
 
-    <script>
+   <script>
+    // URL usada para gerar o pagamento (o seu workflow atual que já funciona)
+    const N8N_CHECKOUT_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
 
-        const N8N_WEBHOOK_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
+    // URL exclusiva para receber o aviso de pagamento aprovado e abrir a porta
+    const N8N_SUCCESS_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/pagamentos';
 
+    // 1. Quando a página carrega e o pagamento está aprovado, usa o URL de sucesso
+    window.addEventListener('DOMContentLoaded', async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentId = urlParams.get('payment_id');
+        const status = urlParams.get('status');
 
-
-        // Assim que a página carrega, verifica se o usuário voltou do Mercado Pago com pagamento aprovado
-
-        window.addEventListener('DOMContentLoaded', async () => {
-
-            const urlParams = new URLSearchParams(window.location.search);
-
-            const paymentId = urlParams.get('payment_id');
-
-            const status = urlParams.get('status');
-
-
-
-            if (paymentId && status === 'approved') {
-
-                document.getElementById('selection-screen').classList.add('hidden');
-
-                document.getElementById('success-screen').classList.remove('hidden');
-
-
-
-                try {
-
-                    // Envia o ID do pagamento aprovado diretamente para o n8n abrir a fechadura
-
-                    await fetch(N8N_WEBHOOK_URL, {
-
-                        method: 'POST',
-
-                        headers: { 'Content-Type': 'application/json' },
-
-                        body: JSON.stringify({ 
-
-                            data: { id: paymentId },
-
-                            action: 'payment.created'
-
-                        })
-
-                    });
-
-                } catch (error) {
-
-                    console.error("Erro ao acionar fechadura:", error);
-
-                }
-
-            }
-
-        });
-
-
-
-        async function comprar(produto, valor) {
-
+        if (paymentId && status === 'approved') {
             document.getElementById('selection-screen').classList.add('hidden');
-
-            document.getElementById('loading-screen').classList.remove('hidden');
-
-
+            document.getElementById('success-screen').classList.remove('hidden');
 
             try {
-
-                const response = await fetch(N8N_WEBHOOK_URL, {
-
+                await fetch(N8N_SUCCESS_URL, {
                     method: 'POST',
-
                     headers: { 'Content-Type': 'application/json' },
-
-                    body: JSON.stringify({ produto: produto, valor: valor })
-
+                    body: JSON.stringify({ 
+                        data: { id: paymentId },
+                        action: 'payment.created'
+                    })
                 });
-
-                
-
-                const data = await response.json();
-
-                let redirectUrl = data.init_point || data.json?.init_point || data[0]?.init_point || data[0]?.json?.init_point;
-
-
-
-                if (redirectUrl) {
-
-                    window.location.href = redirectUrl;
-
-                } else {
-
-                    throw new Error('Link não encontrado');
-
-                }
-
             } catch (error) {
-
-                console.error(error);
-
-                alert('Erro ao gerar pagamento. Tente novamente.');
-
-                document.getElementById('loading-screen').classList.add('hidden');
-
-                document.getElementById('selection-screen').classList.remove('hidden');
-
+                console.error("Erro ao acionar fechadura:", error);
             }
-
         }
+    });
 
-    </script>
+    // 2. Quando clica no produto, continua a usar o URL do checkout normal
+    async function comprar(produto, valor) {
+        document.getElementById('selection-screen').classList.add('hidden');
+        document.getElementById('loading-screen').classList.remove('hidden');
+
+        try {
+            const response = await fetch(N8N_CHECKOUT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ produto: produto, valor: valor })
+            });
+            
+            const data = await response.json();
+            let redirectUrl = data.init_point || data.json?.init_point || data[0]?.init_point || data[0]?.json?.init_point;
+
+            if (redirectUrl) {
+                window.location.href = redirectUrl;
+            } else {
+                throw new Error('Link não encontrado');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Erro ao gerar pagamento. Tente novamente.');
+            document.getElementById('loading-screen').classList.add('hidden');
+            document.getElementById('selection-screen').classList.remove('hidden');
+        }
+    }
+</script>
 
 </body>
 
