@@ -121,7 +121,7 @@
         Santo Hostel • Autoatendimento
     </div>
 
- <script>
+<script>
     const N8N_CHECKOUT_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/freezer';
     const N8N_SUCCESS_URL = 'https://freezersantohostel.app.n8n.cloud/webhook/pagamentos';
 
@@ -132,33 +132,35 @@
         const status = urlParams.get('status') || urlParams.get('collection_status') || urlParams.get('payment_status');
 
         if (paymentId) {
-            // Evita duplicidade: verifica se este ID de pagamento já foi processado nesta sessão/navegador
+            // Evita duplicidade usando session storage
             const lastProcessedId = sessionStorage.getItem('processed_payment_id');
-            if (lastProcessedId === paymentId) {
-                console.log("Pagamento já processado anteriormente. Ignorando disparo duplicado.");
-                return;
+            if (lastProcessedId !== paymentId) {
+                sessionStorage.setItem('processed_payment_id', paymentId);
+
+                document.getElementById('selection-screen').classList.add('hidden');
+                document.getElementById('success-screen').classList.remove('hidden');
+
+                try {
+                    await fetch(N8N_SUCCESS_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            data: { id: paymentId },
+                            status: status || 'approved',
+                            action: 'payment.created'
+                        })
+                    });
+                } catch (error) {
+                    console.error("Erro ao acionar fechadura:", error);
+                }
+            } else {
+                // Se já foi processado, apenas mostra a tela de sucesso sem reenviar ao n8n
+                document.getElementById('selection-screen').classList.add('hidden');
+                document.getElementById('success-screen').classList.remove('hidden');
             }
 
-            // Guarda o ID imediatamente para bloquear novas tentativas
-            sessionStorage.setItem('processed_payment_id', paymentId);
-
-            document.getElementById('selection-screen').classList.add('hidden');
-            document.getElementById('success-screen').classList.remove('hidden');
-
-            try {
-                await fetch(N8N_SUCCESS_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        data: { id: paymentId },
-                        status: status || 'approved',
-                        action: 'payment.created'
-                    })
-                });
-                console.log("Comando enviado ao n8n com sucesso.");
-            } catch (error) {
-                console.error("Erro ao acionar fechadura:", error);
-            }
+            // Limpa a URL para que se o cliente atualizar a página ou clicar em voltar, não fique preso
+            window.history.replaceState({}, document.title, window.location.pathname);
         }
     });
 
